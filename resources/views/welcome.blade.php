@@ -36,7 +36,7 @@
                 <ul class="navbar-btns animated remove-animation" data-animate="fadeInDown" data-delay=".85">
                     <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="/login">LOGIN</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link bg-dark"
+                    <li class="nav-item"><a class="nav-link btn btn-sm btn-outline btn-outline-alt menu-link bg-dark"
                             href="/register">REGISTER</a></li>
                 </ul>
             </div>
