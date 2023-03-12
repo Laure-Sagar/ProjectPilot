@@ -88,9 +88,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12 animate-left delay-5ms">
                             <div class="prblm-item">
-                                <h2 class="prblm-title">Problem</h2>
-                                <h5 class="prblm-subtitle">
-                                    Centralize Network</h5>
+                                <h2 class="prblm-title text-green-700">Problem</h2>
                                 <ul class="prblm-points">
                                     <li>What is the crypto tech? Lorem ipsum dolor sit amet, consectetur.</li>
                                     <li>Natural Language Understanding</li>
@@ -100,37 +98,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12 animate-right delay-7ms">
                             <div class="sltn-item">
-                                <h2 class="sltn-title">Solution</h2>
-                                <h5 class="sltn-subtitle">
-                                    Decentralize Network</h5>
-                                <ul class="sltn-points">
-                                    <li>What is the crypto tech? Lorem ipsum dolor sit amet, consectetur.</li>
-                                    <li>Natural Language Understanding</li>
-                                    <li>How to network with other investors / like-minded people?</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="prblmsltn-item">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 animate-left delay-5ms">
-                            <div class="prblm-item">
-                                <h2 class="prblm-title">Problem</h2>
-                                <h5 class="prblm-subtitle">
-                                    Centralize Network</h5>
-                                <ul class="prblm-points">
-                                    <li>What is the crypto tech? Lorem ipsum dolor sit amet, consectetur.</li>
-                                    <li>Natural Language Understanding</li>
-                                    <li>How to network with other investors / like-minded people?</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12 animate-right delay-7ms">
-                            <div class="sltn-item">
-                                <h2 class="sltn-title">Solution</h2>
-                                <h5 class="sltn-subtitle">
-                                    Decentralize Network</h5>
+                                <h2 class="sltn-title sltn-subtitle text-white">Solution</h2>
                                 <ul class="sltn-points">
                                     <li>What is the crypto tech? Lorem ipsum dolor sit amet, consectetur.</li>
                                     <li>Natural Language Understanding</li>
