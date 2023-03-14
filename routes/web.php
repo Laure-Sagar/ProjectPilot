@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 // Projects Routes Resource
 Route::resource('projects', 'App\Http\Controllers\ProjectsController');
+Route::get('/frontend', function () {
+    return view('frontend');
+});
 
 
 Route::middleware([
