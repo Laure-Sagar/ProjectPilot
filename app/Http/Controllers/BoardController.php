@@ -37,7 +37,8 @@ class BoardController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $board = Board::find($id);
+        return view('board.view')->with('board', $board);
     }
 
     /**

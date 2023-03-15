@@ -1,36 +1,49 @@
 <x-app-layout>
-    <div class="flex flex-row space-x-4 overflow-x-auto bg-gray-100 p-2">
-        @foreach ($boards as $list)
-        <div class="bg-gray-200 rounded-md px-2 py-1 max-w-xs" style="min-width: 250px;">
-            <div class="flex flex-row items-center justify-between">
-                <h2 class="text-lg font-bold">{{ $list->name }}</h2>
-                <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-h"></i></a>
+    <!-- Board Details -->
+    @foreach ($boards as $board)
+    <a href="/board/{{$board->id}}">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+            <!-- Board Name and Description -->
+            <div class="flex flex-row justify-between items-center mb-4">
+                <div class="flex flex-col">
+                    <h2 class="font-bold text-xl mb-2">{{ $board->name }}</h2>
+                    <p class="text-gray-700 text-base">{{ $board->description }}</p>
+                </div>
+                <a href="{{ route('boards.edit', $board->id) }}"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
             </div>
-            <hr class="my-1">
-            <ul class="list-none">
-                @foreach ($list->cards as $card)
-                <li class="bg-white rounded-md px-2 py-1 mb-2 cursor-pointer">
-                    <div class="flex flex-row items-center justify-between">
-                        <h3 class="text-base font-medium">{{ $card->title }}</h3>
-                        <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-h"></i></a>
+
+            <!-- Board Schedule and Status -->
+            <div class="flex flex-row justify-between items-center mb-4">
+                <div class="flex flex-col">
+                    <p class="font-bold text-base mb-2">Schedule</p>
+                    <p class="text-gray-700 text-base"><strong>Start:</strong> {{ $board->earliest_start_date }}</p>
+                    <p class="text-gray-700 text-base"><strong>Finish:</strong> {{ $board->earliest_finish_date }}</p>
+                </div>
+                <div class="flex flex-col">
+                    <p class="font-bold text-base mb-2">Status</p>
+                    <p class="text-gray-700 text-base">{{ $board->status }}</p>
+                </div>
+            </div>
+
+            <!-- Board Task Details -->
+            {{-- <div class="flex flex-col">
+                <p class="font-bold text-base mb-2">Tasks</p>
+                @foreach ($board->tasks as $task)
+                <div class="flex flex-row justify-between items-center mb-2">
+                    <div class="flex flex-col">
+                        <p class="text-gray-700 text-base">{{ $task->description }}</p>
+                        <p class="text-gray-500 text-sm"><strong>Duration:</strong> {{ $task->task_duration }} days</p>
                     </div>
-                    <div class="flex flex-row items-center space-x-1">
-                        <span class="text-gray-600 text-sm">{{ $card->due_date }}</span>
-                        <div class="flex flex-row items-center space-x-1">
-                            <span class="bg-green-500 rounded-full w-3 h-3"></span>
-                            <span class="text-sm">{{ $card->status }}</span>
-                        </div>
+                    <div class="flex flex-col">
+                        <p class="text-gray-700 text-base"><strong>Start:</strong> {{ $task->earliest_start_date }}</p>
+                        <p class="text-gray-700 text-base"><strong>Finish:</strong> {{ $task->earliest_finish_date }}
+                        </p>
                     </div>
-                </li>
+                </div>
                 @endforeach
-                <li class="bg-white rounded-md px-2 py-1 cursor-pointer">
-                    <div class="flex flex-row items-center">
-                        <i class="fas fa-plus mr-2"></i>
-                        <span class="text-sm font-medium">Add a card</span>
-                    </div>
-                </li>
-            </ul>
+            </div> --}}
         </div>
-        @endforeach
-    </div>
+    </a>
+    @endforeach
 </x-app-layout>
