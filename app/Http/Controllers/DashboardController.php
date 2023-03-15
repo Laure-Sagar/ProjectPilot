@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Team;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $projects = Project::all();
+        $projects = Team::all();
 
         foreach ($projects as $project) {
             $start_date = $project->start_date;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateProjectRequest;
@@ -42,7 +43,7 @@ class ProjectsController extends Controller
         $validatedData['start_date'] = new \DateTime($validatedData['start_date']);
         $validatedData['end_date'] = new \DateTime($validatedData['end_date']);
 
-        $project = Project::create($validatedData);
+        $project = Team::create($validatedData);
 
         return redirect()->route('projects.index');
     }

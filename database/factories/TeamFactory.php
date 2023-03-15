@@ -25,6 +25,10 @@ class TeamFactory extends Factory
         return [
             'name' => $this->faker->unique()->company(),
             'user_id' => User::factory(),
+            'description' => $this->faker->paragraph,
+            'start_date' => $this->faker->dateTimeBetween('now', '+1 month'),
+            'end_date' => $this->faker->dateTimeBetween('+1 month', '+3 months'),
+            'status' => $this->faker->randomElement(['pending', 'in_progress', 'completed']),
             'personal_team' => true,
         ];
     }

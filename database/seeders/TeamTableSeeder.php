@@ -2,18 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Project;
+use App\Models\Team;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class ProjectsTableSeeder extends Seeder
+class TeamTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Project::factory()
+        Team::factory()
             ->count(10)
             ->create();
     }

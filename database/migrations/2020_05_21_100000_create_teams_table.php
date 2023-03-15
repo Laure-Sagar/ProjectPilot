@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->index();
             $table->string('name');
+            $table->text('description')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->string('status')->default('in_progress')->nullable();
             $table->boolean('personal_team');
             $table->timestamps();
         });
