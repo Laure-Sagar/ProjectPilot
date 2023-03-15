@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $projects = Team::all();
+        $projects = Team::where('user_id', auth()->user()->id)->get();
 
         foreach ($projects as $project) {
             $start_date = $project->start_date;
