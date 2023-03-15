@@ -15,6 +15,9 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link href="/projects" :active="request()->routeIs('projects.index')">
+                        {{ __('Projects') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -46,6 +49,10 @@
                                 </div>
 
                                 <!-- Team Settings -->
+                                <x-dropdown-link href="/projects">
+                                    {{ __('All Projects') }}
+                                </x-dropdown-link>
+
                                 <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                     {{ __('Project Settings') }}
                                 </x-dropdown-link>

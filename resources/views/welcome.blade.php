@@ -78,8 +78,7 @@
                             Solution</h2>
 
                         <p class="animated" data-animate="fadeInUp" data-delay=".2">At vero eos et accusamus et iusto
-                            odio
-                            dignissimos ducimus qui blan ditiis praes entium volup tatum deleniti.</p>
+                            odio dignissimos ducimus qui blan ditiis praes entium volup tatum deleniti.</p>
                     </div>
                 </div>
             </div>
@@ -156,276 +155,71 @@
             <div class="row justify-content-center text-center">
                 <div class="col-xl-6 col-lg-8">
                     <div class="section-head-s7">
-                        <h2 class="section-title-s7 animated" data-animate="fadeInUp" data-delay=".1">Executive team
+                        <h2 class="section-title-s7 animated" data-animate="fadeInUp" data-delay=".1">Project Team
+                            Members
                         </h2>
-
-                        <p class="animated" data-animate="fadeInUp" data-delay=".2">The ICO Crypto Team combines a
-                            passion
-                            for esports, industry experise &amp; proven record in finance, development, marketing &
-                            licensing.</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col-sm-6 col-lg-3">
                     <div class="team-circle animated" data-animate="fadeInUp" data-delay=".3">
-                        <div class="team-photo"><img src="images/team-a-sq.jpg" alt="" /><a href="#team-profile-1"
-                                class="expand-trigger content-popup"></a>
+                        <div class="team-photo"><img
+                                src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/279133980_5090260341061666_3603937771339776020_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=174925&_nc_ohc=M6nOIqMfeOoAX9AHSjn&_nc_ht=scontent.fktm3-1.fna&oh=00_AfA-mZnKZbg9Z_Kv1b1GKt79J1PzwyxnDy4cd98EDE0xTg&oe=64154BC8"
+                                alt="" /><a href="#team-profile-1" class="expand-trigger content-popup"></a>
                         </div>
                         <div class="team-info">
-                            <h5 class="team-name">Waylon Dalton</h5><span class="team-title">CEO &amp; Lead Blockchain
-                            </span>
+                            <h5 class="team-name">Sahil Bhewtal</h5>
 
                         </div><!-- Start .team-profile  -->
-                        <div id="team-profile-1" class="team-profile mfp-hide">
-                            <button title="Close" type="button" class="mfp-close">×</button>
-                            <div class="container-fluid">
-                                <div class="row no-mg">
-                                    <div class="col-md-6">
-                                        <div class="team-profile-photo"><img src="images/team-a-lg.jpg" alt="" /></div>
-                                    </div><!-- .col  -->
-                                    <div class="col-md-6">
-                                        <div class="team-profile-info">
-                                            <h3 class="name">Waylon Dalton</h3>
-
-                                            <p class="sub-title">CEO &amp; Lead Blockchain </p>
-
-                                            <p>He is a great man to work Lorem ipsum dolor sit amet, consec tetur adipis
-                                                icing elit. Simi lique, autem. </p>
-
-                                            <p>Tenetur quos facere magnam volupt ates quas esse Sedrep ell endus mole
-                                                stiae
-                                                tates quas esse Sed repell endus molesti aela uda ntium quis quam iusto
-                                                minima thanks.</p>
-
-                                            <div class="skill-bars">
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">HTML5</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">85%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:85%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">CSS3</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">90%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:90%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">Java</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">75%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:75%"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><!-- .col  -->
-                                </div><!-- .row  -->
-                            </div><!-- .container  -->
-                        </div>
                         <!-- .team-profile  -->
                     </div>
                 </div><!-- .col  -->
                 <div class="col-sm-6 col-lg-3">
                     <div class="team-circle animated" data-animate="fadeInUp" data-delay=".4">
-                        <div class="team-photo"><img src="images/team-b-sq.jpg" alt="team"><a href="#team-profile-2"
-                                class="expand-trigger content-popup"></a>
+                        <div class="team-photo"><img
+                                src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/304860700_3259541497651243_3878205002575859218_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=9LnwmxBSNg0AX-P2sKc&_nc_ht=scontent.fktm3-1.fna&oh=00_AfAvDsb5A6urBfAuKttNneeE4I1_nF7BcezPHyKvPY8JTA&oe=64172103"
+                                alt="team"><a href="#team-profile-2" class="expand-trigger content-popup"></a>
                         </div>
                         <div class="team-info">
-                            <h5 class="team-name">Stefan Harary</h5><span class="team-title">CTO &amp; Senior
-                                Developer</span>
+                            <h5 class="team-name">Sagar Chhetri</h5>
 
                         </div><!-- Start .team-profile  -->
-                        <div id="team-profile-2" class="team-profile mfp-hide">
-                            <button title="Close" type="button" class="mfp-close">×</button>
-                            <div class="container-fluid">
-                                <div class="row no-mg">
-                                    <div class="col-md-6">
-                                        <div class="team-profile-photo"><img src="images/team-b-lg.jpg" alt="team" />
-                                        </div>
-                                    </div><!-- .col  -->
-                                    <div class="col-md-6">
-                                        <div class="team-profile-info">
-                                            <h3 class="name">Stefan Harary</h3>
-
-                                            <p class="sub-title">CTO &amp; Senior Developer</p>
-
-                                            <p>He is a great man to work Lorem ipsum dolor sit amet, consec tetur adipis
-                                                icing elit. Simi lique, autem. </p>
-
-                                            <p>Tenetur quos facere magnam volupt ates quas esse Sedrep ell endus mole
-                                                stiae
-                                                tates quas esse Sed repell endus molesti aela uda ntium quis quam iusto
-                                                minima thanks.</p>
-
-                                            <div class="skill-bars">
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">HTML5</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">85%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:85%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">CSS3</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">90%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:90%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">Java</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">75%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:75%"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><!-- .col  -->
-                                </div><!-- .row  -->
-                            </div><!-- .container  -->
-                        </div>
-                        <!-- .team-profile  -->
                     </div>
                 </div><!-- .col  -->
                 <div class="col-sm-6 col-lg-3">
                     <div class="team-circle animated" data-animate="fadeInUp" data-delay=".5">
-                        <div class="team-photo"><img src="images/team-c-sq.jpg" alt="team"><a href="#team-profile-3"
-                                class="expand-trigger content-popup"></a>
+                        <div class="team-photo"><img
+                                src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/281140175_4966470656782830_7283658018194490815_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=mJXXtlz-IyAAX-wkxzf&_nc_ht=scontent.fktm3-1.fna&oh=00_AfC0KFKUiB4NxLlBfQVyP-ocEAcUhpLmO_DkoXOg7Vx6fg&oe=64168947"
+                                alt="team"><a href="#team-profile-3" class="expand-trigger content-popup"></a>
                         </div>
                         <div class="team-info">
-                            <h5 class="team-name">Moises Teare</h5><span class="team-title">Blochain App
-                                Developer</span>
-                        </div><!-- Start .team-profile  -->
-                        <div id="team-profile-3" class="team-profile mfp-hide">
-                            <button title="Close" type="button" class="mfp-close">×</button>
-                            <div class="container-fluid">
-                                <div class="row no-mg">
-                                    <div class="col-md-6">
-                                        <div class="team-profile-photo"><img src="images/team-c-lg.jpg" alt="team" />
-                                        </div>
-                                    </div><!-- .col  -->
-                                    <div class="col-md-6">
-                                        <div class="team-profile-info">
-                                            <h3 class="name">Moises Teare</h3>
-
-                                            <p class="sub-title">Blochain App Developer</p>
-                                            <ul class="tpi-social">
-                                                <li><a href="#"><em class="fab fa-facebook-f"></em></a></li>
-                                                <li><a href="#"><em class="fab fa-linkedin-in"></em></a></li>
-                                                <li><a href="#"><em class="fab fa-twitter"></em></a></li>
-                                            </ul>
-                                            <p>He is a great man to work Lorem ipsum dolor sit amet, consec tetur adipis
-                                                icing elit. Simi lique, autem. </p>
-
-                                            <p>Tenetur quos facere magnam volupt ates quas esse Sedrep ell endus mole
-                                                stiae
-                                                tates quas esse Sed repell endus molesti aela uda ntium quis quam iusto
-                                                minima thanks.</p>
-
-                                            <div class="skill-bars">
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">HTML5</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">85%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:85%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">CSS3</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">90%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:90%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="single-skill-bar">
-                                                    <div class="row no-mg">
-                                                        <div class="col-8 no-pd"><span class="skill-title">Java</span>
-                                                        </div>
-                                                        <div class="col-4 text-right no-pd"><span
-                                                                class="skill-percent">75%</span></div>
-                                                    </div>
-                                                    <div class="skill-bar">
-                                                        <div class="skill-bar-percent gradiant-background"
-                                                            style="width:75%"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><!-- .col  -->
-                                </div><!-- .row  -->
-                            </div><!-- .container  -->
+                            <h5 class="team-name">Pritha Shrestha</h5>
                         </div>
-                        <!-- .team-profile  -->
-                    </div>
-                </div><!-- .col  -->
-            </div><!-- .row  -->
+                    </div><!-- .col  -->
+                </div><!-- .row  -->
+            </div>
         </div>
-    </div>
 
-    <!-- Start Section -->
-    <div class="section footer-section">
-        <div class="ui-shape ui-shape-light ui-shape-footer"></div>
-        <div class="container text-center mt-4 mb-4">
-            Copyrights @Project Pilot. All Rights Reserved.
-        </div><!-- .container -->
-    </div><!-- End Section -->
+        <!-- Start Section -->
+        <div class="section footer-section">
+            <div class="ui-shape ui-shape-light ui-shape-footer"></div>
+            <div class="container text-center mt-4 mb-4 text-white">
+                Copyrights @Project Pilot. All Rights Reserved.
+            </div><!-- .container -->
+        </div><!-- End Section -->
 
-    {{-- Preloader --}}
-    <div id="preloader">
-        <div id="loader"></div>
-        <div class="loader-section loader-top"></div>
-        <div class="loader-section loader-bottom"></div>
-    </div>
-    <!-- Preloader End -->
+        {{-- Preloader --}}
+        <div id="preloader">
+            <div id="loader"></div>
+            <div class="loader-section loader-top"></div>
+            <div class="loader-section loader-bottom"></div>
+        </div>
+        <!-- Preloader End -->
 
-    <!-- JavaScript  -->
-    <script src="assets/js/jquery.bundle.js"></script>
-    <script src="assets/js/script.js"></script>
+        <!-- JavaScript  -->
+        <script src="assets/js/jquery.bundle.js"></script>
+        <script src="assets/js/script.js"></script>
 </body>
 
 </html>
