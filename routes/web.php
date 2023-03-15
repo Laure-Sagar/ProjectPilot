@@ -24,7 +24,7 @@ Route::resource('boards', 'App\Http\Controllers\BoardController');
 Route::get('{id}/board', 'App\Http\Controllers\BoardController@index')->name('board.home');
 Route::get('board/{id}', 'App\Http\Controllers\BoardController@show')->name('board.view');
 
-
+Route::get('/board/{id}/tasks', 'App\Http\Controllers\TaskController@index')->name('task.index');
 
 Route::middleware([
     'auth:sanctum',
