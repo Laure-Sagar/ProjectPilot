@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Board;
 use Illuminate\Http\Request;
 
 class BoardController extends Controller
@@ -9,9 +10,10 @@ class BoardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $boards = Board::where('project_id', $id)->get();
+        return view('board.index')->with('boards', $boards);
     }
 
     /**
@@ -19,7 +21,7 @@ class BoardController extends Controller
      */
     public function create()
     {
-        //
+        return view('board.create');
     }
 
     /**

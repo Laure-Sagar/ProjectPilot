@@ -26,6 +26,8 @@
                                     <td class="border px-4 py-2">{{$project->end_date}}</td>
                                     <td class="border px-4 py-2">{{$project->status}}</td>
                                     <td class="border px-4 py-2">
+                                        <a href="/{{$project->id}}/board"> <button type="button"
+                                                class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">Boards</button></a>
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST"
                                             style="display: inline;">
                                             @csrf

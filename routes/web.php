@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::resource('projects', 'App\Http\Controllers\ProjectController');
 Route::resource('boards', 'App\Http\Controllers\BoardController');
 
+Route::get('{id}/board', 'App\Http\Controllers\BoardController@index')->name('board.view');
+
 
 
 Route::middleware([
