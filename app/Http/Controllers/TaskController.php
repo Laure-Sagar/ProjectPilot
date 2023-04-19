@@ -8,7 +8,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return view('task.index')
+        return view('task.index');
     }
     public function subindex()
     {
