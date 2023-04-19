@@ -4,7 +4,7 @@
     <header>
         <div class="header-flex">
             <span id="sidebar-button"><i class="fa fa-list"></i></span>
-            <h1 id="title" class="text-align-center">Task Management</h1>
+            <h1 id="title" class="text-align-center">Sub-Task Management</h1>
             <span class="title-actions-container" style="font-size:25px;cursor:pointer;letter-spacing: 1ch;">
                 <label for="auto-save" class="auto-save-text">Auto Save</label>
                 <label class="switch" id="auto-save-label">
