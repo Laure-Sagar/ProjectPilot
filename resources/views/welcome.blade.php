@@ -30,7 +30,6 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
                 <ul class="navbar-nav animated remove-animation" data-animate="fadeInDown" data-delay=".75">
                     <li class="nav-item"><a class="nav-link menu-link" href="#benifits">Problem Analysis</a></li>
-                    <li class="nav-item"><a class="nav-link menu-link" href="#documents">Documentation</a></li>
                     <li class="nav-item"><a class="nav-link menu-link" href="#team">Project Team Member</a></li>
                 </ul>
                 <ul class="navbar-btns animated remove-animation" data-animate="fadeInDown" data-delay=".85">
@@ -50,8 +49,8 @@
                         <div class="col-sm-10 col-md-12 col-lg-10">
                             <div class="header-txt tab-center mobile-center">
                                 <h1 class="animated" data-animate="fadeInUp" data-delay="1.25">ProjectPilot: The Nepal's
-                                    1<sup>st</sup> Project Management Tool that <br class="d-none d-xl-block"> Automates
-                                    a Project Development.
+                                    1<sup>st</sup> Project Management Tool that <br class="d-none d-xl-block"> Helps in
+                                    Project Development.
                                 </h1>
 
                                 <div class="gaps size-1x d-none d-md-block"></div>
@@ -74,11 +73,8 @@
             <div class="row justify-content-center text-center">
                 <div class="col-md-6 col-sm-8">
                     <div class="section-head-s7">
-                        <h2 class="section-title-s7 animated" data-animate="fadeInUp" data-delay=".1">ICO Problem &amp;
+                        <h2 class="section-title-s7 animated" data-animate="fadeInUp" data-delay=".1">Problem &amp;
                             Solution</h2>
-
-                        <p class="animated" data-animate="fadeInUp" data-delay=".2">At vero eos et accusamus et iusto
-                            odio dignissimos ducimus qui blan ditiis praes entium volup tatum deleniti.</p>
                     </div>
                 </div>
             </div>
@@ -88,20 +84,16 @@
                         <div class="col-md-6 col-sm-12 animate-left delay-5ms">
                             <div class="prblm-item">
                                 <h2 class="prblm-title text-green-700">Problem</h2>
-                                <ul class="prblm-points">
-                                    <li>What is the crypto tech? Lorem ipsum dolor sit amet, consectetur.</li>
-                                    <li>Natural Language Understanding</li>
-                                    <li>How to network with other investors / like-minded people?</li>
-                                </ul>
+                                <p>When working on a project, if you have a large team, you may need a tool that can support multiple users and allow team members to collaborate on the schedule.Projects often involve tasks that depend on the completion of other tasks. If these dependencies are not properly identified and managed, it can result in delays or other issues.There are always potential risks associated with a project, such as delays, budget overruns, or quality issues. Proper risk management is essential to identify and mitigate these risks in order to ensure the success of the project.</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12 animate-right delay-7ms">
                             <div class="sltn-item">
                                 <h2 class="sltn-title sltn-subtitle text-white">Solution</h2>
                                 <ul class="sltn-points">
-                                    <li>What is the crypto tech? Lorem ipsum dolor sit amet, consectetur.</li>
-                                    <li>Natural Language Understanding</li>
-                                    <li>How to network with other investors / like-minded people?</li>
+                                    <li>To ensure that the project is completed on time, within budget, and to the required quality standards.</li>
+                                    <li>To track progress.</li>
+                                    <li>Communicate the project plan to stakeholders.</li>
                                 </ul>
                             </div>
                         </div>
@@ -111,42 +103,6 @@
         </div>
     </div><!-- End Section -->
     <!-- Start Section -->
-    <div class="section section-pad document-section section-bg-zinnia" id="documents">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-lg-5 res-m-bttm">
-                    <div class="document-img-s3 animated" data-animate="fadeInUp" data-delay=".1"><img
-                            src="images/zinnia/documents-cover.png" alt="documents"></div>
-                </div><!-- .col -->
-                <div class="col-lg-7 text-center text-lg-left">
-                    <div class="section-head-s7">
-                        <h2 class="section-title-s7 animated" data-animate="fadeInUp" data-delay=".2">Read Our Documents
-                        </h2>
-
-                        <p class="animated" data-animate="fadeInUp" data-delay=".3">Here is our full documents that help
-                            you
-                            to understand about us. And lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <ul class="document-list">
-                        <li class="animated" data-animate="fadeInUp" data-delay=".4"><a href="#" class="btn btn-outline"
-                                data-toggle="dropdown">White Paper
-                            </a>
-                        </li>
-                        <li class="animated" data-animate="fadeInUp" data-delay=".5"><a href="#" class="btn btn-outline"
-                                data-toggle="dropdown">One Pager</a>
-                        </li>
-                        <li class="animated" data-animate="fadeInUp" data-delay=".6"><a href="#"
-                                class="btn btn-outline">Privacy
-                                &amp; Policy</a></li>
-                        <li class="animated" data-animate="fadeInUp" data-delay=".7"><a href="#"
-                                class="btn btn-outline">Terms
-                                of Coin Sale</a></li>
-                    </ul>
-                </div><!-- .col -->
-            </div><!-- .row -->
-        </div><!-- .container -->
-    </div><!-- End Section -->
-
 
     <!-- Start Section -->
     <div class="section section-pad section-bg" id="team">
@@ -210,11 +166,11 @@
         </div><!-- End Section -->
 
         {{-- Preloader --}}
-        <div id="preloader">
+        {{-- <div id="preloader">
             <div id="loader"></div>
             <div class="loader-section loader-top"></div>
             <div class="loader-section loader-bottom"></div>
-        </div>
+        </div> --}}
         <!-- Preloader End -->
 
         <!-- JavaScript  -->

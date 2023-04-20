@@ -23,4 +23,13 @@ class ProjectController extends Controller
 
         return view('project.project-dashboard')->with('projects', $projects);
     }
+
+    public function destroy($id)
+    {
+        $project = Team::find($id);
+        $project->delete();
+        auth()->user()->currentTeam = 41;
+
+        return redirect()->back();
+    }
 }

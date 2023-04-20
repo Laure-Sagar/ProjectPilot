@@ -17,7 +17,6 @@
                                     <th class="px-4 py-2">Start Date</th>
                                     <th class="px-4 py-2">End Date</th>
                                     <th class="px-4 py-2">Status</th>
-                                    <th class="px-4 py-2">Project Manager</th>
                                     <th class="px-4 py-2">Actions</th>
                                 </tr>
                             </thead>
@@ -30,7 +29,6 @@
                                     <td class="border px-4 py-2">{{$project->start_date}}</td>
                                     <td class="border px-4 py-2">{{$project->end_date}}</td>
                                     <td class="border px-4 py-2">{{$project->status}}</td>
-                                    <td class="border px-4 py-2">{{$project->project_manager}}</td>
                                     <td class="border px-4 py-2">
                                         <a href="{{ route('projects.edit', $project->id) }}"
                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2">Edit</a>
