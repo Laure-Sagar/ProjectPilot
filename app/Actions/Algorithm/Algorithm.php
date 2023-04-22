@@ -2,6 +2,8 @@
 
 namespace App\Actions\Algorithm;
 
+use App\Models\Task;
+
 
 
 class Algorithm
@@ -44,7 +46,9 @@ class Algorithm
             foreach ($tasks as $task) {
                 $earliestStartTimes[$task['name']] = 0;
                 $earliestFinishTimes[$task['name']] = $task['duration'];
+
                 foreach ($task['dependencies'] as $dependency) {
+                    $dependency = Task::find($dependency)->name;
                     $earliestStartTimes[$task['name']] = max($earliestStartTimes[$task['name']], $earliestFinishTimes[$dependency]);
                 }
                 $earliestFinishTimes[$task['name']] = $earliestStartTimes[$task['name']] + $task['duration'];

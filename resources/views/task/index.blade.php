@@ -1,5 +1,10 @@
 <x-app-layout>
-    <div>
+    <style>
+        body {
+            overflow-y: scroll !important;
+        }
+    </style>
+    <div class="overflow-y-auto">
         <link rel="stylesheet" href="/assets/css/card.css">
 
         <header>
@@ -21,14 +26,14 @@
                     <a href="/{{auth()->user()->current_team_id}}/tasks/create"
                         class="float-right bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md">Add
                         Task</a>
-                    <div class=" mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class=" mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         <!-- Example task card -->
                         @foreach ($tasks_data as $task)
                         <a href="/task/1/subtasks">
                             <div class="bg-white rounded-lg shadow-md py-4 px-4">
                                 <div class="flex justify-between items-center mb-4">
                                     <span class="text-sm text-gray-600"><i>Duration:</i> <span
-                                            class="font-bold">{{$task->task_duration}} days</span></span>
+                                            class="font-bold">{{$task->duration}} days</span></span>
                                 </div>
                                 <div class="mb-4">
                                     <h3 class="text-gray-600 font-bold mb-2"><i>Task Name</i></h3>
@@ -41,9 +46,11 @@
                                 <div class="mb-4">
                                     <h3 class="text-gray-600 font-bold mb-2"><i>Dependencies</i></h3>
                                     <ul class="list-disc list-inside">
-                                        @foreach(json_decode($task->dependencies) as $dep)
-                                        <li>{{$dep}}</li>
-                                        @endforeach
+                                        @forelse(json_decode($task->dependencies) as $dep)
+                                        <li>@php echo App\Models\Task::find($dep)->name; @endphp</li>
+                                        @empty
+                                        <li>No dependencies</li>
+                                        @endforelse
                                     </ul>
                                 </div>
                             </div>
