@@ -33,15 +33,17 @@ class ProjectController extends Controller
     {
         $user = auth()->user();
 
-        $team = $user->ownedTeams->first();
-        if ($team == null)
+        $team = $user->ownedTeams->count();
+        if ($team == 1) {
             return redirect()->back()->with('error', 'You must have at least one project to delete a project');
-        $user->switchTeam($team);
+        } else {
+            $team = $user->ownedTeams->first();
+            $user->switchTeam($team);
 
-        $project = Team::find($id);
-        $project->delete();
+            $project = Team::find($id);
+            $project->delete();
+        }
 
-
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Project deleted successfully');
     }
 }
