@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Team;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Board extends Model
+class Task extends Model
 {
     use HasFactory;
 

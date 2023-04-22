@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('boards', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('earliest_start_date')->nullable();
-            $table->string('earliest_finish_date')->nullable();
-            $table->string('latest_start_date')->nullable();
-            $table->string('latest_finish_date')->nullable();
-            $table->integer('task_duration')->nullable();
-            $table->text('dependencies_board')->nullable();
+            $table->integer('duration')->nullable();
+            $table->integer('est')->nullable();
+            $table->integer('lst')->nullable();
+            $table->integer('eft')->nullable();
+            $table->integer('lft')->nullable();
+            $table->text('dependencies')->nullable();
             $table->string('status')->nullable();
             $table->string('project_id');
             $table->timestamps();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('boards');
+        Schema::dropIfExists('tasks');
     }
 };

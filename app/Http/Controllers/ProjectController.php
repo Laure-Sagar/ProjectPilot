@@ -26,9 +26,12 @@ class ProjectController extends Controller
 
     public function destroy($id)
     {
+        $user = auth()->user();
+        $user->switchTeam($user->ownedTeams->first());
+
         $project = Team::find($id);
         $project->delete();
-        auth()->user()->currentTeam = 41;
+
 
         return redirect()->back();
     }
