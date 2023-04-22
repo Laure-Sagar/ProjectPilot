@@ -27,7 +27,11 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $user = auth()->user();
-        $user->switchTeam($user->ownedTeams->first());
+
+        $team = $user->ownedTeams->first();
+        if ($team == null)
+            return redirect()->back()->with('error', 'You must have at least one project to delete a project');
+        $user->switchTeam($team);
 
         $project = Team::find($id);
         $project->delete();
