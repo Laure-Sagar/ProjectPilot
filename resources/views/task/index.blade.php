@@ -29,7 +29,7 @@
                     <div class=" mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         <!-- Example task card -->
                         @foreach ($tasks_data as $task)
-                        <a href="/task/1/subtasks">
+                        <a href="/{{$task->id}}/subtasks">
                             <div class="bg-white rounded-lg shadow-md py-4 px-4">
                                 <div class="flex justify-between items-center mb-4">
                                     <span class="text-sm text-gray-600"><i>Duration:</i> <span

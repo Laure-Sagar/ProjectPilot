@@ -49,9 +49,10 @@ class TaskController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function subindex()
+    public function subindex($task_id)
     {
-        return view('subtasks.index');
+        $task = Task::find($task_id)->name;
+        return view('subtasks.index')->with('task_id', $task_id)->with('task', $task);
     }
 
     /**

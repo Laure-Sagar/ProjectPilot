@@ -3,9 +3,13 @@
 
     <header>
         <div class="header-flex">
+            <a href="/{{auth()->user()->current_team_id}}/tasks"
+                class="float-right bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md">Go
+                Back</a>
+            <h1 id="title" class="text-align-center pt-2">{{$task}}</h1>
             <span id="sidebar-button"><i class="fa fa-list"></i></span>
-            <h1 id="title" class="text-align-center">Sub-Task Management</h1>
-            <span class="title-actions-container" style="font-size:25px;cursor:pointer;letter-spacing: 1ch;">
+            <span class="title-actions-container" style="display:none"
+                style="font-size:25px;cursor:pointer;letter-spacing: 1ch;">
                 <label for="auto-save" class="auto-save-text">Auto Save</label>
                 <label class="switch" id="auto-save-label">
                     <input id="auto-save" type="checkbox" checked>
@@ -19,7 +23,7 @@
     </header>
 
 
-    <div id="sidebar" class="sidenav">
+    <div id="sidebar" class="sidenav" style="display:none">
         <span id="sidebar-close">&times;</span>
         <p class="is-title">Boards</p>
         <ul id="boards-list">

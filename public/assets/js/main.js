@@ -451,6 +451,8 @@ class Card {
 
             // Render the items of the card.
             let _newItemList = this.renderItems();
+            let itemlistnew =
+                "<a href='/subtask/create'>" + _newItemList + "</a>";
 
             // Add the list to the card.
             _newCard.appendChild(_newItemList);
