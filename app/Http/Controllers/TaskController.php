@@ -9,11 +9,15 @@ use App\Actions\Algorithm\Algorithm;
 class TaskController extends Controller
 {
 
+    /**
+     * Display a listing of the resource.
+     */
     public function show(string $id)
     {
         $task = Task::find($id);
         return view('task.view')->with('task', $task);
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -27,11 +31,18 @@ class TaskController extends Controller
 
         return view('task.index', compact("criticalPath", "criticalTime", 'tasks_data'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
     public function subindex()
     {
         return view('subtasks.index');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $task = new Task();

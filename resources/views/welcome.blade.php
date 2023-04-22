@@ -32,12 +32,23 @@
                     <li class="nav-item"><a class="nav-link menu-link" href="#benifits">Problem Analysis</a></li>
                     <li class="nav-item"><a class="nav-link menu-link" href="#team">Project Team Member</a></li>
                 </ul>
+                @auth
+                <ul class="navbar-btns animated remove-animation" data-animate="fadeInDown" data-delay=".85">
+                    <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link"
+                            href="/dashboard">DASHBOARD</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link btn btn-sm btn-outline btn-outline-alt menu-link bg-dark"
+                            href="/logout">LOGOUT</a></li>
+                </ul>
+                @else
                 <ul class="navbar-btns animated remove-animation" data-animate="fadeInDown" data-delay=".85">
                     <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="/login">LOGIN</a>
                     </li>
                     <li class="nav-item"><a class="nav-link btn btn-sm btn-outline btn-outline-alt menu-link bg-dark"
                             href="/register">REGISTER</a></li>
                 </ul>
+                @endauth
+
             </div>
         </div><!-- End Navbar -->
         <!-- Banner/Slider -->
@@ -84,14 +95,21 @@
                         <div class="col-md-6 col-sm-12 animate-left delay-5ms">
                             <div class="prblm-item">
                                 <h2 class="prblm-title text-green-700">Problem</h2>
-                                <p>When working on a project, if you have a large team, you may need a tool that can support multiple users and allow team members to collaborate on the schedule.Projects often involve tasks that depend on the completion of other tasks. If these dependencies are not properly identified and managed, it can result in delays or other issues.There are always potential risks associated with a project, such as delays, budget overruns, or quality issues. Proper risk management is essential to identify and mitigate these risks in order to ensure the success of the project.</p>
+                                <p>When working on a project with a large team, it's important to have tools that
+                                    support multiple users and collaboration.
+                                    Task dependencies must be properly identified and managed to avoid delays and other
+                                    issues. Additionally, there are
+                                    always risks associated with a project, and proper risk management is essential to
+                                    identify and mitigate these risks to
+                                    ensure project success.</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12 animate-right delay-7ms">
                             <div class="sltn-item">
                                 <h2 class="sltn-title sltn-subtitle text-white">Solution</h2>
                                 <ul class="sltn-points">
-                                    <li>To ensure that the project is completed on time, within budget, and to the required quality standards.</li>
+                                    <li>To ensure that the project is completed on time, within budget, and to the
+                                        required quality standards.</li>
                                     <li>To track progress.</li>
                                     <li>Communicate the project plan to stakeholders.</li>
                                 </ul>
@@ -120,9 +138,8 @@
             <div class="row justify-content-center text-center">
                 <div class="col-sm-6 col-lg-3">
                     <div class="team-circle animated" data-animate="fadeInUp" data-delay=".3">
-                        <div class="team-photo"><img
-                                src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/279133980_5090260341061666_3603937771339776020_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=174925&_nc_ohc=M6nOIqMfeOoAX9AHSjn&_nc_ht=scontent.fktm3-1.fna&oh=00_AfA-mZnKZbg9Z_Kv1b1GKt79J1PzwyxnDy4cd98EDE0xTg&oe=64154BC8"
-                                alt="" /><a href="#team-profile-1" class="expand-trigger content-popup"></a>
+                        <div class="team-photo"><img src="https://ui-avatars.com/api/?name=Sahil+Bhewtal" alt="" /><a
+                                href="#team-profile-1" class="expand-trigger content-popup"></a>
                         </div>
                         <div class="team-info">
                             <h5 class="team-name">Sahil Bhewtal</h5>
@@ -133,9 +150,8 @@
                 </div><!-- .col  -->
                 <div class="col-sm-6 col-lg-3">
                     <div class="team-circle animated" data-animate="fadeInUp" data-delay=".4">
-                        <div class="team-photo"><img
-                                src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/304860700_3259541497651243_3878205002575859218_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=9LnwmxBSNg0AX-P2sKc&_nc_ht=scontent.fktm3-1.fna&oh=00_AfAvDsb5A6urBfAuKttNneeE4I1_nF7BcezPHyKvPY8JTA&oe=64172103"
-                                alt="team"><a href="#team-profile-2" class="expand-trigger content-popup"></a>
+                        <div class="team-photo"><img src="https://ui-avatars.com/api/?name=Sagar+Chhetri" alt="team"><a
+                                href="#team-profile-2" class="expand-trigger content-popup"></a>
                         </div>
                         <div class="team-info">
                             <h5 class="team-name">Sagar Chhetri</h5>
@@ -145,8 +161,7 @@
                 </div><!-- .col  -->
                 <div class="col-sm-6 col-lg-3">
                     <div class="team-circle animated" data-animate="fadeInUp" data-delay=".5">
-                        <div class="team-photo"><img
-                                src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/281140175_4966470656782830_7283658018194490815_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=mJXXtlz-IyAAX-wkxzf&_nc_ht=scontent.fktm3-1.fna&oh=00_AfC0KFKUiB4NxLlBfQVyP-ocEAcUhpLmO_DkoXOg7Vx6fg&oe=64168947"
+                        <div class="team-photo"><img src="https://ui-avatars.com/api/?name=Pritha+Shrestha"
                                 alt="team"><a href="#team-profile-3" class="expand-trigger content-popup"></a>
                         </div>
                         <div class="team-info">

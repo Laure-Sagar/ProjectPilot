@@ -24,6 +24,11 @@ class ProjectController extends Controller
         return view('project.project-dashboard')->with('projects', $projects);
     }
 
+    public function edit($project_id)
+    {
+        return redirect('/teams/' . $project_id);
+    }
+
     public function destroy($id)
     {
         $user = auth()->user();

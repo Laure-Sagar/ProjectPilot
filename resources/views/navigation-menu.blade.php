@@ -15,7 +15,7 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="/projects" :active="request()->routeIs('projects.index')">
+                    <x-nav-link href="/project" :active="request()->routeIs('project.index')">
                         {{ __('Projects') }}
                     </x-nav-link>
                 </div>
@@ -49,7 +49,7 @@
                                 </div>
 
                                 <!-- Team Settings -->
-                                <x-dropdown-link href="/projects">
+                                <x-dropdown-link href="/project">
                                     {{ __('All Projects') }}
                                 </x-dropdown-link>
 

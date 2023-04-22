@@ -22,9 +22,6 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Example task card -->
                     @foreach ($tasks_data as $task)
-                    {{--
-                    <?php dd($tasks) ?> --}}
-
                     <a href="/task/1/subtasks">
                         <div class="bg-white rounded-lg shadow-md p-4">
                             <div class="flex justify-between items-center mb-4">
@@ -49,13 +46,8 @@
                             </div>
                         </div>
                     </a>
-
                     @endforeach
-                    <!-- Repeat task card for each task -->
-                    <!-- Example task card -->
-
                 </div>
-
             </div>
     </header>
 </x-app-layout>

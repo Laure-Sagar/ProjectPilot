@@ -17,17 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Projects Routes Resource
-Route::resource('projects', 'App\Http\Controllers\ProjectController');
-Route::resource('boards', 'App\Http\Controllers\BoardController');
+Route::get('/{project_id}/tasks', 'App\Http\Controllers\TaskController@index')->name('task.view');
+Route::get('/{project_id}/tasks/create', 'App\Http\Controllers\TaskController@subindex')->name('subtask.create');
+Route::post('/{project_id}/task/store', 'App\Http\Controllers\TaskController@store')->name('task.store');
 
-Route::get('{id}/board', 'App\Http\Controllers\BoardController@index')->name('board.home');
-Route::get('board/{id}', 'App\Http\Controllers\BoardController@show')->name('board.view');
+Route::get('/{task_id}/subtasks', 'App\Http\Controllers\TaskController@subindex')->name('subtask.index');
 
-Route::get('/task/{id}/subtasks', 'App\Http\Controllers\TaskController@subindex')->name('task.index');
-Route::get('/board/{id}/tasks', 'App\Http\Controllers\TaskController@index')->name('task.index');
-Route::post('/board/{id}/create', 'App\Http\Controllers\TaskController@store')->name('task.index');
-
+Route::prefix('/project')->name('project.')->group(function () {
+    Route::get('/', 'App\Http\Controllers\ProjectController@index')->name('index');
+    Route::get('/{project_id}/destroy', 'App\Http\Controllers\ProjectController@destroy')->name('destroy');
+    Route::get('/{project_id}/edit', 'App\Http\Controllers\ProjectController@edit')->name('edit');
+    Route::get('/create', 'App\Http\Controllers\ProjectController@create')->name('create');
+});
 
 Route::middleware([
     'auth:sanctum',
