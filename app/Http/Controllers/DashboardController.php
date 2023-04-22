@@ -24,6 +24,6 @@ class DashboardController extends Controller
         $criticalPath = $algorithm_result[0];
         $criticalTime = $algorithm_result[1];
 
-        return view('task.index', compact("criticalPath", "criticalTime", 'tasks_data'));
+        return view('dashboard', compact("criticalPath", "criticalTime", 'tasks_data'));
     }
 }
