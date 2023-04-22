@@ -22,7 +22,7 @@
                             <div class="text-gray-800 font-bold">{{$criticalTime}}</div>
                         </div>
                     </div>
-                    <h1 class="text-2xl font-bold mb-4">Task List</h1>
+                    <h1 class="text-2xl font-bold mb-4">{{$tasks_data->first()->project->name}}</h1>
                     <a href="/{{auth()->user()->current_team_id}}/tasks/create"
                         class="float-right bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md">Add
                         Task</a>

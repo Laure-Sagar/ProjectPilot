@@ -38,6 +38,10 @@ class Algorithm
     // CPM Algorithm
     public static function getCriticalPath($tasks)
     {
+        $latestFinishTimes = 0; 
+        $latestStartTimes = 0; 
+        $earliestFinishTimes = 0; 
+        $earliestStartTimes = 0;
         if ($tasks != null) {
 
             // Step 1: Calculate the earliest start and finish times for each task
@@ -83,6 +87,6 @@ class Algorithm
             $criticalTime = 0;
             $criticalPath = [];
         }
-        return array($criticalPath, $criticalTime);
+        return array($criticalPath, $criticalTime, $latestFinishTimes, $latestStartTimes, $earliestFinishTimes, $earliestStartTimes);
     }
 }

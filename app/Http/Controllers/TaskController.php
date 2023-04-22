@@ -34,6 +34,7 @@ class TaskController extends Controller
         $tasks = Algorithm::getStructure($tasks_data);
 
         $algorithm_result = Algorithm::getCriticalPath($tasks);
+        dd($algorithm_result);
         $criticalPath = $algorithm_result[0];
         $criticalTime = $algorithm_result[1];
 
