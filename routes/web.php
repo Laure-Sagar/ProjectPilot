@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
 
-Route::get('/{project_id}/tasks', 'App\Http\Controllers\TaskController@index')->name('task.view');
-Route::get('/{project_id}/tasks/create', 'App\Http\Controllers\TaskController@subindex')->name('subtask.create');
+Route::get('/{project_id}/tasks', 'App\Http\Controllers\TaskController@showtasks')->name('task.view');
+Route::get('/{project_id}/tasks/create', 'App\Http\Controllers\TaskController@taskcreate')->name('task.create');
 Route::post('/{project_id}/task/store', 'App\Http\Controllers\TaskController@store')->name('task.store');
 
 Route::get('/{task_id}/subtasks', 'App\Http\Controllers\TaskController@subindex')->name('subtask.index');
@@ -42,8 +42,4 @@ Route::middleware([
 
 Route::get('popup', function () {
     return view('popup');
-});
-
-Route::get('task_form', function () {
-    return view('task_form');
 });

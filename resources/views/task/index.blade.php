@@ -17,7 +17,8 @@
                     </div>
                 </div>
                 <h1 class="text-2xl font-bold mb-4">Task List</h1>
-                <a href="/task_form" class="bg-dark-500 hover:bg-blue-700 text-dark font-bold py-2 px-4 rounded-md">Add
+                <a href="/{{auth()->user()->current_team_id}}/tasks/create"
+                    class="bg-dark-500 hover:bg-blue-700 text-dark font-bold py-2 px-4 rounded-md">Add
                     Task</a>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Example task card -->

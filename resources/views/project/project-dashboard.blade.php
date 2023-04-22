@@ -20,8 +20,8 @@
                                 @foreach($projects as $project)
                                 <tr>
                                     <td class="border px-4 py-2">{{$project->id}}</td>
-                                    <td class="border px-4 py-2"><a
-                                            href="/board/{{$project->id}}/tasks">{{$project->name}}</a></td>
+                                    <td class="border px-4 py-2 underline text-blue-800"><a
+                                            href="/{{$project->id}}/tasks">{{$project->name}}</a></td>
                                     <td class="border px-4 py-2">{{$project->description}}</td>
                                     <td class="border px-4 py-2">{{$project->start_date}}</td>
                                     <td class="border px-4 py-2">{{$project->end_date}}</td>
