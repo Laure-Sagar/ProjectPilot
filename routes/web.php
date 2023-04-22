@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
+
 Route::get('/{project_id}/tasks', 'App\Http\Controllers\TaskController@index')->name('task.view');
 Route::get('/{project_id}/tasks/create', 'App\Http\Controllers\TaskController@subindex')->name('subtask.create');
 Route::post('/{project_id}/task/store', 'App\Http\Controllers\TaskController@store')->name('task.store');

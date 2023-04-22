@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Termwind\Components\Dd;
 
 class ProjectController extends Controller
 {
@@ -32,16 +33,15 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $user = auth()->user();
-
         $team = $user->ownedTeams->count();
         if ($team == 1) {
             return redirect()->back()->with('error', 'You must have at least one project to delete a project');
         } else {
-            $team = $user->ownedTeams->first();
-            $user->switchTeam($team);
-
             $project = Team::find($id);
             $project->delete();
+            $team = $user->ownedTeams->first();
+            $user->switchTeam($team);
+            dd($user->current_team_id);
         }
 
         return redirect()->back()->with('success', 'Project deleted successfully');
