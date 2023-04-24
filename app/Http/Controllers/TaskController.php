@@ -7,6 +7,7 @@ use App\Models\Team;
 use Termwind\Components\Dd;
 use Illuminate\Http\Request;
 use App\Actions\Algorithm\Algorithm;
+use App\Http\Request\ProjectRequest;
 
 class TaskController extends Controller
 {
@@ -57,8 +58,9 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
+       
         $task = new Task();
         $task->name = $request->task_name;
         $task->description = $request->task_description;
@@ -69,6 +71,10 @@ class TaskController extends Controller
             $task->dependencies = json_encode($request->task_dependencies);
         $task->project_id = auth()->user()->current_team_id;
         $task->save();
+        // 'name' => 'required|max:255',
+        // 'description' => 'required',
+        // 'start_date' => 'required|date',
+        // 'end_date' => 'required|date|after_or_equal:start_date',
 
         return redirect()->back()->with('success', 'Task created successfully');
     }
