@@ -2,6 +2,8 @@
 
 namespace App\Actions\Algorithm;
 
+use App\Models\Task;
+
 
 
 class Algorithm
@@ -36,6 +38,10 @@ class Algorithm
     // CPM Algorithm
     public static function getCriticalPath($tasks)
     {
+        $latestFinishTimes = 0; 
+        $latestStartTimes = 0; 
+        $earliestFinishTimes = 0; 
+        $earliestStartTimes = 0;
         if ($tasks != null) {
 
             // Step 1: Calculate the earliest start and finish times for each task
@@ -44,7 +50,9 @@ class Algorithm
             foreach ($tasks as $task) {
                 $earliestStartTimes[$task['name']] = 0;
                 $earliestFinishTimes[$task['name']] = $task['duration'];
+
                 foreach ($task['dependencies'] as $dependency) {
+                    $dependency = Task::find($dependency)->name;
                     $earliestStartTimes[$task['name']] = max($earliestStartTimes[$task['name']], $earliestFinishTimes[$dependency]);
                 }
                 $earliestFinishTimes[$task['name']] = $earliestStartTimes[$task['name']] + $task['duration'];
@@ -79,6 +87,6 @@ class Algorithm
             $criticalTime = 0;
             $criticalPath = [];
         }
-        return array($criticalPath, $criticalTime);
+        return array($criticalPath, $criticalTime, $latestFinishTimes, $latestStartTimes, $earliestFinishTimes, $earliestStartTimes);
     }
 }

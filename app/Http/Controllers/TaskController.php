@@ -35,6 +35,7 @@ class TaskController extends Controller
         $tasks = Algorithm::getStructure($tasks_data);
 
         $algorithm_result = Algorithm::getCriticalPath($tasks);
+        dd($algorithm_result);
         $criticalPath = $algorithm_result[0];
         $criticalTime = $algorithm_result[1];
 
@@ -50,9 +51,10 @@ class TaskController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function subindex()
+    public function subindex($task_id)
     {
-        return view('subtasks.index');
+        $task = Task::find($task_id)->name;
+        return view('subtasks.index')->with('task_id', $task_id)->with('task', $task);
     }
 
     /**

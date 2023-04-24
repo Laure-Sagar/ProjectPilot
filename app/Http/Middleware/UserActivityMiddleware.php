@@ -16,12 +16,16 @@ class UserActivityMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = auth()->user();
-        $team = Team::find($user->current_team_id);
-        if ($team == null) {
-            $team = $user->ownedTeams->first();
-            $user->switchTeam($team);
+        if (auth()->check()) {
+            $user = auth()->user();
+            $team = Team::find($user->current_team_id);
+            if ($team == null) {
+                $team = $user->ownedTeams->first();
+                $user->switchTeam($team);
+            }
+            return $next($request);
         }
+
 
         return $next($request);
     }

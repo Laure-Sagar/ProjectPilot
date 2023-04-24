@@ -3,25 +3,27 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Task;
 use App\Models\Team;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Actions\Algorithm\Algorithm;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $projects = Team::where('user_id', auth()->user()->id)->get();
+        $user = auth()->user();
+        $project_id = Team::find($user->current_team_id)->id;
 
-        foreach ($projects as $project) {
-            $start_date = $project->start_date;
-            $end_date = $project->end_date;
-            $start_date = Carbon::parse($start_date);
-            $end_date = Carbon::parse($end_date);
-            $project->start_date = $start_date->format('m/d/Y');
-            $project->end_date = $end_date->format('m/d/Y');
-        }
+        $tasks_data = Task::where("project_id", $project_id)->get();
 
-        return view('dashboard')->with('projects', $projects);
+        $tasks = Algorithm::getStructure($tasks_data);
+
+        $algorithm_result = Algorithm::getCriticalPath($tasks);
+        $criticalPath = $algorithm_result[0];
+        $criticalTime = $algorithm_result[1];
+
+        return view('dashboard', compact("criticalPath", "criticalTime", 'tasks_data'));
     }
 }

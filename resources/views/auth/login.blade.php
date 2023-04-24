@@ -42,6 +42,9 @@
                 </a>
                 @endif
 
+                <a href="/register" class="ml-4 underline">
+                    {{ __('Register') }}
+                </a>
                 <x-button class="ml-4">
                     {{ __('Log in') }}
                 </x-button>

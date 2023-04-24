@@ -1,6 +1,7 @@
 <x-app-layout>
-    <div class="container">
-        <div class="row justify-center">
+    <h3 class="text-lg font-semibold text-gray-800">{{ __(' .') }}</h3>
+    <div class="container px-4">
+        <div class="row justify-center p-2">
             <div class="col-md-10">
                 <div class="bg-white rounded-lg shadow-lg">
                     <div class="p-4">
