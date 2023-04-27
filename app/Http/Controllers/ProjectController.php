@@ -25,11 +25,19 @@ class ProjectController extends Controller
         return view('project.project-dashboard')->with('projects', $projects);
     }
 
-    public function edit_start_date($project_id)
+    public function edit_dates($project_id)
     {
 
         $project = Team::find($project_id);
         return view('task.edit_project_date')->with('project', $project);
+    }
+
+    public function storeDates(Request $request, $project_id)
+    {
+        $project = Team::find($project_id);
+        $project->start_date = $request->start_date;
+        $project->save();
+        return redirect('/project');
     }
 
     public function edit($project_id)
