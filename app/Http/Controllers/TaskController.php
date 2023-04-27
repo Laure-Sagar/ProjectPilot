@@ -7,7 +7,7 @@ use App\Models\Team;
 use Termwind\Components\Dd;
 use Illuminate\Http\Request;
 use App\Actions\Algorithm\Algorithm;
-use App\Http\Request\ProjectRequest;
+use App\Http\Requests\ProjectRequest;
 
 class TaskController extends Controller
 {
@@ -35,16 +35,19 @@ class TaskController extends Controller
         $tasks = Algorithm::getStructure($tasks_data);
 
         $algorithm_result = Algorithm::getCriticalPath($tasks);
-        dd($algorithm_result);
+        // dd($algorithm_result);
         $criticalPath = $algorithm_result[0];
         $criticalTime = $algorithm_result[1];
-
-        return view('task.index', compact("criticalPath", "criticalTime", 'tasks_data'));
+        // dd($project_id);
+        return view('task.index', compact("criticalPath", "criticalTime", 'tasks_data','project_id'));
     }
+    
 
     public function taskcreate($project_id)
     {
+
         $task = Task::where('project_id', $project_id)->get();
+        // dd($project_id);
         return view('task.createform')->with('project_id', $project_id)->with('tasks', $task);
     }
 
@@ -63,6 +66,12 @@ class TaskController extends Controller
     public function store(ProjectRequest $request)
     {
        
+        // $request->validate{
+        //     'task_name' => 'required|string|max:255',
+        //     'description' => 'required|string',
+        //     'start_date' => 'required|date',
+        //     'end_date' => 'required|date|after:start_date',
+        // }
         $task = new Task();
         $task->name = $request->task_name;
         $task->description = $request->task_description;
