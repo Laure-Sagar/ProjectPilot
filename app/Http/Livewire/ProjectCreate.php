@@ -19,11 +19,12 @@ class ProjectCreate extends Component
             'end_date' => 'required',
             'status' => 'required',
         ]);
-        // check if start date is greater than end date
+
         if ($this->start_date > $this->end_date) {
-            session()->flash('message', 'Start date cannot be greater than end date.');
+            session()->flash('error', 'Start date cannot be greater than end date.');
             return;
         }
+
         $validatedData['user_id'] = auth()->user()->id;
 
         $project = new Team;
@@ -36,7 +37,7 @@ class ProjectCreate extends Component
         $project->personal_team = 0;
         $project->save();
 
-        session()->flash('message', 'Project Created Successfully.');
+        session()->flash('success', 'Project Created Successfully.');
 
         return redirect()->route('dashboard');
     }

@@ -27,6 +27,7 @@ class ProjectController extends Controller
 
     public function edit_start_date($project_id)
     {
+
         $project = Team::find($project_id);
         return view('task.edit_project_date')->with('project', $project);
     }
@@ -47,7 +48,6 @@ class ProjectController extends Controller
             $project->delete();
             $team = $user->ownedTeams->first();
             $user->switchTeam($team);
-            dd($user->current_team_id);
         }
 
         return redirect()->back()->with('success', 'Project deleted successfully');
