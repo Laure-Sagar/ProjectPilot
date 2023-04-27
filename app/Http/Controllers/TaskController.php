@@ -77,10 +77,10 @@ class TaskController extends Controller
         return redirect()->back()->with('success', 'Task created successfully');
     }
 
-    public function editform($task_id)
+    public function editform($project_id, $task_id)
     {
         $task = Task::find($task_id);
-        $tasks = Task::where('project_id', $task->project_id)->get();
+        $tasks = Task::where('project_id', $project_id)->get();
         return view('task.editform')->with('task', $task)->with('tasks', $tasks);
     }
 

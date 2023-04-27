@@ -20,8 +20,8 @@
             </div>
             <div class="form-group">
                 <label for="task-description">Task Description:</label>
-                <textarea class="form-control" id="task_description" name="task_description"
-                    value="{{ $task->description }}" rows="3"></textarea>
+                <textarea class="form-control" id="task_description" name="task_description" value=""
+                    rows="3">{{ $task->description }}</textarea>
                 @if ($errors->has('task_description'))
                 <span class="text-danger">
                     @error('task_description')
@@ -31,48 +31,15 @@
                 @endif
             </div>
             <div class="form-group">
-                <label for="start-date">Start Date:</label>
-                <input type="date" class="form-control" id="start_date" name="start_date" value="{{ $task->end_date }}">
-                @if ($errors->has('start_date'))
+                <label for="start-date">Duration (days)</label>
+                <input type="number" class="form-control" id="start_date" name="duration" value="{{ $task->duration }}">
+                @if ($errors->has('duration'))
                 <span class="text-danger">
-                    @error('start_date')
+                    @error('duration')
                     {{ $message }}
                     @enderror
                 </span>
                 @endif
-            </div>
-            <div class="form-group">
-                <label for="end-date">End Date:</label>
-                <input type="date" class="form-control" id="end_date" name="end_date" value="{{ $task->end_date }}">
-                @if ($errors->has('end_date'))
-                <span class=" text-danger">
-                    @error('end_date')
-                    {{ $message }}
-                    @enderror
-                </span>
-                @endif
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="task-duration-days">Duration (days):</label>
-                    <input type="text" class="form-control" id="task_days" name="task_days" min="0" disabled>
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                    <script>
-                        $(function() {
-                            $('#end_date').on('change', function() {
-                                var start_date = new Date($('#start_date').val());
-                                var end_date = new Date($('#end_date').val());
-                                var diff = Math.floor((end_date - start_date) / (1000 * 60 * 60 * 24));
-                                if (diff > 0) {
-                                    $('#task_days').val(diff);
-                                } else {
-
-                                    $('#task_days').val('Duration in negative value');
-                                }
-                            });
-                        });
-                    </script>
-                </div>
             </div>
             <div class="form-group">
                 <label>Dependencies Task:</label>
@@ -80,7 +47,8 @@
                 @if($taskd->id != $task->id)
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="task_dependencies[]" id="{{ $taskd->id }}"
-                        value="{{ $taskd->id }}">
+                        value="{{ $taskd->id }}" @if(in_array($taskd->id, json_decode($task->dependencies))) checked
+                    @endif>
                     <label class="form-check-label" for="{{ $taskd->id }}">
                         {{ $taskd->name }}
                     </label>

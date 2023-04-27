@@ -56,7 +56,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="task-duration-days">Duration (days):</label>
-                    <input type="text" class="form-control" id="task_days" name="task_days" min="0" disabled>
+                    <input type="text" class="form-control" id="task_days" name="duration" min="0" disabled>
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                         $(function() {
