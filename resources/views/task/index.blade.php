@@ -1,4 +1,5 @@
 <x-app-layout>
+    
     <style>
         .btn {
             display: inline-block;
@@ -49,13 +50,17 @@
                             <div class="text-gray-600">Shotest Time to Complete the project:</div>
                             <div class="text-gray-800 font-bold">{{ $criticalTime }}</div>
                         </div>
-                    </div>
+                    </div>{{ route('project.edit_start_date', $project_id) }}
                     <div class="text-center">
                         <a href="/{{ auth()->user()->current_team_id }}/tasks/create"
                             class="float-right bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md">Add
                             Task</a>
+                        <a href="{{ route('project.edit_start_date', $project_id) }}"
+                            class="float-right bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md">Edit
+                            Project Date</a>
+                            
                     </div>
-
+                    
                     @if (($tasks_data->first()) != null)
                     <h1 class="text-2xl font-bold mb-4">{{ $tasks_data->first()->project->name }}</h1>
                     <div class=" mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
