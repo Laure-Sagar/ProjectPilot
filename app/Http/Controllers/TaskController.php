@@ -80,8 +80,8 @@ class TaskController extends Controller
     public function editform($task_id)
     {
         $task = Task::find($task_id);
-
-        return view('task.editform')->with('task', $task);
+        $tasks = Task::where('project_id', $task->project_id)->get();
+        return view('task.editform')->with('task', $task)->with('tasks', $tasks);
     }
 
     public function editStore()

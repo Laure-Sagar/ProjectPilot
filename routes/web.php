@@ -24,8 +24,8 @@ Route::prefix('/{project_id}/tasks')->name('task.')->group(
         Route::get('', 'App\Http\Controllers\TaskController@showtasks')->name('view');
         Route::get('/create', 'App\Http\Controllers\TaskController@taskcreate')->name('create');
         Route::post('/store', 'App\Http\Controllers\TaskController@store')->name('store');
-        Route::get('/edit', 'App\Http\Controllers\TaskController@editForm')->name('edit');
-        Route::post('/edit', 'App\Http\Controllers\TaskController@editStore')->name('edit');
+        Route::get('{task_id}/edit', 'App\Http\Controllers\TaskController@editForm')->name('edit');
+        Route::post('{task_id}/edit', 'App\Http\Controllers\TaskController@editStore')->name('edit');
         Route::get('/{task_id}/destroy', 'App\Http\Controllers\TaskController@destroy')->name('destroy');
     }
 );

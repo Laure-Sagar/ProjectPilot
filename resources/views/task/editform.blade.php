@@ -9,7 +9,7 @@
             @csrf
             <div class="form-group">
                 <label for="task-name">Task Name:</label>
-                <input type="text" class="form-control" id="task_name" name="task_name" value="{{ old('task_name') }}">
+                <input type="text" class="form-control" id="task_name" name="task_name" value="{{ $task->name }}">
                 @if ($errors->has('task_name'))
                 <span class="text-danger">
                     @error('task_name')
@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="task-description">Task Description:</label>
                 <textarea class="form-control" id="task_description" name="task_description"
-                    value="{{ old('task_description') }}" rows="3"></textarea>
+                    value="{{ $task->description }}" rows="3"></textarea>
                 @if ($errors->has('task_description'))
                 <span class="text-danger">
                     @error('task_description')
@@ -32,8 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="start-date">Start Date:</label>
-                <input type="date" class="form-control" id="start_date" name="start_date"
-                    value="{{ old('start_date') }}">
+                <input type="date" class="form-control" id="start_date" name="start_date" value="{{ $task->end_date }}">
                 @if ($errors->has('start_date'))
                 <span class="text-danger">
                     @error('start_date')
@@ -44,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="end-date">End Date:</label>
-                <input type="date" class="form-control" id="end_date" name="end_date" value="{{ old('end_date') }}">
+                <input type="date" class="form-control" id="end_date" name="end_date" value="{{ $task->end_date }}">
                 @if ($errors->has('end_date'))
                 <span class=" text-danger">
                     @error('end_date')
@@ -77,14 +76,16 @@
             </div>
             <div class="form-group">
                 <label>Dependencies Task:</label>
-                @forelse($tasks as $task)
+                @forelse($tasks as $taskd)
+                @if($taskd->id != $task->id)
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="task_dependencies[]" id="{{ $task->id }}"
-                        value="{{ $task->id }}">
-                    <label class="form-check-label" for="{{ $task->id }}">
-                        {{ $task->name }}
+                    <input class="form-check-input" type="checkbox" name="task_dependencies[]" id="{{ $taskd->id }}"
+                        value="{{ $taskd->id }}">
+                    <label class="form-check-label" for="{{ $taskd->id }}">
+                        {{ $taskd->name }}
                     </label>
                 </div>
+                @endif
                 @empty
                 <p style="text-align: center;">No tasks available</p>
                 @endforelse
