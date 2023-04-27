@@ -19,18 +19,27 @@ Route::get('/', function () {
 
 Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
 
-Route::get('/{project_id}/tasks', 'App\Http\Controllers\TaskController@showtasks')->name('task.view');
-Route::get('/{project_id}/tasks/create', 'App\Http\Controllers\TaskController@taskcreate')->name('task.create');
-Route::post('/{project_id}/task/store', 'App\Http\Controllers\TaskController@store')->name('task.store');
+Route::prefix('/{project_id}/tasks')->name('task.')->group(
+    function () {
+        Route::get('', 'App\Http\Controllers\TaskController@showtasks')->name('view');
+        Route::get('/create', 'App\Http\Controllers\TaskController@taskcreate')->name('create');
+        Route::post('/store', 'App\Http\Controllers\TaskController@store')->name('store');
+        Route::get('/edit', 'App\Http\Controllers\TaskController@editForm')->name('edit');
+        Route::post('/edit', 'App\Http\Controllers\TaskController@editStore')->name('edit');
+        Route::get('/{task_id}/destroy', 'App\Http\Controllers\TaskController@destroy')->name('destroy');
+    }
+);
 
 Route::get('/{task_id}/subtasks', 'App\Http\Controllers\TaskController@subindex')->name('subtask.index');
 
-Route::prefix('/project')->name('project.')->group(function () {
-    Route::get('/', 'App\Http\Controllers\ProjectController@index')->name('index');
-    Route::get('/{project_id}/destroy', 'App\Http\Controllers\ProjectController@destroy')->name('destroy');
-    Route::get('/{project_id}/edit', 'App\Http\Controllers\ProjectController@edit')->name('edit');
-    Route::get('/create', 'App\Http\Controllers\ProjectController@create')->name('create');
-});
+Route::prefix('/project')->name('project.')->group(
+    function () {
+        Route::get('/', 'App\Http\Controllers\ProjectController@index')->name('index');
+        Route::get('/{project_id}/destroy', 'App\Http\Controllers\ProjectController@destroy')->name('destroy');
+        Route::get('/{project_id}/edit', 'App\Http\Controllers\ProjectController@edit')->name('edit');
+        Route::get('/create', 'App\Http\Controllers\ProjectController@create')->name('create');
+    }
+);
 
 Route::middleware([
     'auth:sanctum',

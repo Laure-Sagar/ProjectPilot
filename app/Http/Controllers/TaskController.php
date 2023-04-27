@@ -35,19 +35,16 @@ class TaskController extends Controller
         $tasks = Algorithm::getStructure($tasks_data);
 
         $algorithm_result = Algorithm::getCriticalPath($tasks);
-        // dd($algorithm_result);
         $criticalPath = $algorithm_result[0];
         $criticalTime = $algorithm_result[1];
-        // dd($project_id);
-        return view('task.index', compact("criticalPath", "criticalTime", 'tasks_data','project_id'));
+        return view('task.index', compact("criticalPath", "criticalTime", 'tasks_data', 'project_id'));
     }
-    
+
 
     public function taskcreate($project_id)
     {
-
         $task = Task::where('project_id', $project_id)->get();
-        // dd($project_id);
+
         return view('task.createform')->with('project_id', $project_id)->with('tasks', $task);
     }
 
@@ -65,13 +62,7 @@ class TaskController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-       
-        // $request->validate{
-        //     'task_name' => 'required|string|max:255',
-        //     'description' => 'required|string',
-        //     'start_date' => 'required|date',
-        //     'end_date' => 'required|date|after:start_date',
-        // }
+
         $task = new Task();
         $task->name = $request->task_name;
         $task->description = $request->task_description;
@@ -82,11 +73,36 @@ class TaskController extends Controller
             $task->dependencies = json_encode($request->task_dependencies);
         $task->project_id = auth()->user()->current_team_id;
         $task->save();
-        // 'name' => 'required|max:255',
-        // 'description' => 'required',
-        // 'start_date' => 'required|date',
-        // 'end_date' => 'required|date|after_or_equal:start_date',
 
         return redirect()->back()->with('success', 'Task created successfully');
+    }
+
+    public function editform($task_id)
+    {
+        $task = Task::find($task_id);
+
+        return view('task.editform')->with('task', $task);
+    }
+
+    public function editStore()
+    {
+        $task = Task::find(request()->task_id);
+        $task->name = request()->task_name;
+        $task->description = request()->task_description;
+        $task->duration = request()->task_days;
+        if (request()->task_dependencies == null)
+            $task->dependencies = "[]";
+        else
+            $task->dependencies = json_encode(request()->task_dependencies);
+        $task->save();
+
+        return redirect()->back()->with('success', 'Task edited successfully');
+    }
+
+    function delete($task_id)
+    {
+        $task = Task::find($task_id);
+        $task->delete();
+        return redirect()->back()->with('success', 'Task deleted successfully');
     }
 }

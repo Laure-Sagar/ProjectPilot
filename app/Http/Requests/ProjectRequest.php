@@ -22,12 +22,31 @@ class ProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //  $request->validate{
-                'task_name' => 'required|string|max:255',
-                'task_description' => 'required|string',
-                'start_date' => 'required|date',
-                'end_date' => 'required|date|after:start_date',
-        // }
+            'task_name' => 'required|string|max:100|min:3|unique:tasks,name',
+            'task_description' => 'required|string',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     */
+    public function messages(): array
+    {
+        return [
+            'task_name.required' => 'Task name is required',
+            'task_name.string' => 'Task name must be a string',
+            'task_name.max' => 'Task name is too long (max: 100 characters)',
+            'task_name.min' => 'Task name is too short (min: 3 characters)',
+            'task_name.unique' => 'Task name already exists',
+            'task_description.required' => 'Task description is required',
+            'task_description.string' => 'Task description must be a string',
+            'start_date.required' => 'Start date is required',
+            'start_date.date' => 'Start date must be a date',
+            'end_date.required' => 'End date is required',
+            'end_date.date' => 'End date must be a date',
+            'end_date.after' => 'End date must be after start date',
         ];
     }
 }

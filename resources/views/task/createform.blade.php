@@ -5,7 +5,7 @@
 
         <a href="/{{ auth()->user()->current_team_id }}/tasks" class="btn btn-primary">Back to Tasks</a>
         <h2 class="text-center">Task Form</h2>
-        <form action="/{{ auth()->user()->current_team_id }}/task/store" method="POST">
+        <form action="/{{ auth()->user()->current_team_id }}/tasks/store" method="POST">
             @csrf
             <div class="form-group">
                 <label for="task-name">Task Name:</label>
