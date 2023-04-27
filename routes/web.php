@@ -35,6 +35,7 @@ Route::get('/{task_id}/subtasks', 'App\Http\Controllers\TaskController@subindex'
 Route::prefix('/project')->name('project.')->group(
     function () {
         Route::get('/', 'App\Http\Controllers\ProjectController@index')->name('index');
+        Route::get('/{project_id}/start_date', 'App\Http\Controllers\ProjectController@edit_start_date')->name('edit_start_date');
         Route::get('/{project_id}/destroy', 'App\Http\Controllers\ProjectController@destroy')->name('destroy');
         Route::get('/{project_id}/edit', 'App\Http\Controllers\ProjectController@edit')->name('edit');
         Route::get('/create', 'App\Http\Controllers\ProjectController@create')->name('create');
