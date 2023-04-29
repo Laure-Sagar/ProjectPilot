@@ -22,7 +22,7 @@
         <a href="/{{auth()->user()->current_team_id}}/tasks"
             class=" bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md">Go
             Back</a>
-        <a href="/{{auth()->user()->current_team_id}}/tasks/{{$task->id}}/subtasks/create"
+        <a href="/{{$task->id}}/subtasks/create"
             class="bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md"
             data-toggle="modal" data-target="#myModal">Add Task</a>
 

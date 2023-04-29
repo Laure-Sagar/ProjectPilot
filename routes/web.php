@@ -31,7 +31,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         }
     );
 
-    Route::get('/{task_id}/subtasks', 'App\Http\Controllers\TaskController@subindex')->name('subtask.index');
+    Route::prefix('/{task_id}')->name('subtask.')->group(function () {
+        Route::get('/subtasks', 'App\Http\Controllers\TaskController@subindex')->name('index');
+        Route::get('/subtasks/create', 'App\Http\Controllers\TaskController@subindexCreate')->name('create');
+    });
 
     Route::view('/subtasks', 'subtasks.trello');
 

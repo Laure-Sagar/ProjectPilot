@@ -57,6 +57,12 @@ class TaskController extends Controller
         return view('subtasks.trello')->with('task_id', $task_id)->with('task', $task);
     }
 
+    public function subindexCreate()
+    {
+
+        return view('subtasks.popup');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
