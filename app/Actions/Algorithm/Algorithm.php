@@ -15,11 +15,12 @@ class Algorithm
         foreach ($tasks_data as $task) {
             $taskd = [
                 'name' => $task->name,
-                'duration' => $task->task_duration,
+                'duration' => $task->duration,
                 'dependencies' => json_decode($task->dependencies),
             ];
             array_push($tasks, $taskd);
         }
+        
         return $tasks;
     }
 
@@ -87,6 +88,7 @@ class Algorithm
             $criticalTime = 0;
             $criticalPath = [];
         }
+        // dd($tasks);
         return array($criticalPath, $criticalTime, $latestFinishTimes, $latestStartTimes, $earliestFinishTimes, $earliestStartTimes);
     }
 }

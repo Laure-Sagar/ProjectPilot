@@ -62,18 +62,16 @@ class TaskController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-
         $task = new Task();
         $task->name = $request->task_name;
         $task->description = $request->task_description;
-        $task->duration = $request->task_days;
+        $task->duration = $request->duration;
         if ($request->task_dependencies == null)
             $task->dependencies = "[]";
         else
             $task->dependencies = json_encode($request->task_dependencies);
         $task->project_id = auth()->user()->current_team_id;
         $task->save();
-
         return redirect()->back()->with('success', 'Task created successfully');
     }
 
@@ -89,7 +87,7 @@ class TaskController extends Controller
         $task = Task::find(request()->task_id);
         $task->name = request()->task_name;
         $task->description = request()->task_description;
-        $task->duration = request()->task_days;
+        $task->duration = request()->duration;
         if (request()->task_dependencies == null)
             $task->dependencies = "[]";
         else
