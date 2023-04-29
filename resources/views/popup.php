@@ -1,100 +1,87 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Modal Example</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css">
 </head>
-<body>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<body class="bg-gray-100">
+  <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
   <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Add Task</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
+  <div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center">
+    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
 
-        <!-- Modal body -->
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="name">Name:</label>
-              <input type="text" class="form-control" id="name">
+    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+      <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+        <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+          <path d="M1.39 1.393l15.173 15.173m0-15.173L1.393 16.566" />
+        </svg>
+        <span class="text-sm">(Esc)</span>
+      </div>
+
+      <!-- Modal Header -->
+      <div class="modal-header py-3 px-4 border-b border-gray-300">
+        <h4 class="text-xl font-bold text-gray-700">Add Task</h4>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body py-4 px-4">
+        <form>
+          <div class="mb-4">
+            <label class="text-gray-700 font-bold mb-2" for="name">Name:</label>
+            <input type="text" class="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" id="name">
+          </div>
+          <div class="mb-4">
+            <label class="text-gray-700 font-bold mb-2" for="description">Description:</label>
+            <textarea class="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" id="description"></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="text-gray-700 font-bold mb-2" for="end-date">Deadline:</label>
+            <input type="date" class="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" id="end-date" name="end-date">
+          </div>
+          <div class="mb-4">
+            <div class="relative inline-block w-full text-gray-700">
+              <button class="py-2 px-4 rounded inline-flex items-center">
+                <span class="mr-1">Select Members</span>
+                <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8l5 5 5-5z" />
+                </svg>
+              </button>
+              <ul class="absolute hidden text" </ul>
             </div>
-            <div class="form-group">
-              <label for="description">Description:</label>
-              <textarea class="form-control" id="description"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="end-date">Deadline:</label>
-                <input type="date" class="form-control" id="end-date" name="end-date">
-              </div>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select Members
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <form class="px-4 py-3">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="member1" id="member1">
-                      <label class="form-check-label" for="member1">
-                        Member 1
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="member2" id="member2">
-                      <label class="form-check-label" for="member2">
-                        Member 2
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="member3" id="member3">
-                      <label class="form-check-label" for="member3">
-                        Member 3
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="member4" id="member4">
-                      <label class="form-check-label" for="member4">
-                        Member 4
-                      </label>
-                    </div>
-                  </form>
-                  <div class="dropdown-divider"></div>
-                  <button class="dropdown-item" type="button">Add Selected Members</button>
-                </div>
-              </div>
-              
-            {{-- <div class="form-group">
-                <label for="members">Add Member:</label>
-                <select class="form-control" id="members" multiple>
-                  <option>Member 1</option>
-                  <option>Member 2</option>
-                  <option>Member 3</option>
-                  <option>Member 4</option>
-                  <option>Member 5</option>
-                </select>
-              </div> --}}
-          </form>
-        </div>
+          </div>
+          <div class="mb-4">
+            <label class="text-gray-700 font-bold mb-2" for="priority">Priority:</label>
+            <select class="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" id="priority">
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="text-gray-700 font-bold mb-2" for="status">Status:</label>
+            <select class="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" id="status">
+              <option>Not Started</option>
+              <option>In Progress</option>
+              <option>Completed</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="text-gray-700 font-bold mb-2" for="attachment">Attachment:</label>
+            <input type="file" class="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" id="attachment">
+          </div>
+          <div class="mb-4">
+            <label class="text-gray-700 font-bold mb-2" for="comment">Comment:</label>
+            <textarea class="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" id="comment"></textarea>
+          </div>
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save</button>
-        </div>
-
+        </form>
       </div>
     </div>
   </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
