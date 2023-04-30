@@ -40,17 +40,7 @@
             <div class="bg-gray-100">
                 <div class="container mx-auto py-8">
                     <!-- Repeat task card for each task -->
-                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                        <div class="text-lg font-bold mb-4">Summary</div>
-                        <div class="flex justify-between">
-                            <div class="text-gray-600">Critical Path:</div>
-                            <div class="text-gray-800 font-bold">{{ implode(' --->', $criticalPath) }}</div>
-                        </div>
-                        <div class="flex justify-between">
-                            <div class="text-gray-600">Shotest Time to Complete the project:</div>
-                            <div class="text-gray-800 font-bold">{{ $criticalTime }}</div>
-                        </div>
-                    </div>
+                    <livewire:live-algorithm />
                     <div class="text-center">
                         {{-- <a href="/{{ auth()->user()->current_team_id }}/tasks/create" --}} <a
                             href="{{ route('task.create', ['project_id' => $project_id]) }}"

@@ -2,7 +2,9 @@
 
 namespace App\Actions\Algorithm;
 
+use App\Http\Livewire\LiveAlgorithm;
 use App\Models\Task;
+use Livewire\Livewire;
 
 
 
@@ -20,7 +22,7 @@ class Algorithm
             ];
             array_push($tasks, $taskd);
         }
-        
+
         return $tasks;
     }
 
@@ -39,9 +41,9 @@ class Algorithm
     // CPM Algorithm
     public static function getCriticalPath($tasks)
     {
-        $latestFinishTimes = 0; 
-        $latestStartTimes = 0; 
-        $earliestFinishTimes = 0; 
+        $latestFinishTimes = 0;
+        $latestStartTimes = 0;
+        $earliestFinishTimes = 0;
         $earliestStartTimes = 0;
         if ($tasks != null) {
 
@@ -90,5 +92,11 @@ class Algorithm
         }
         // dd($tasks);
         return array($criticalPath, $criticalTime, $latestFinishTimes, $latestStartTimes, $earliestFinishTimes, $earliestStartTimes);
+    }
+
+    public static function CallLivewire($data)
+    {
+        $component = new LiveAlgorithm();
+        $component->updateStatus($data);
     }
 }
