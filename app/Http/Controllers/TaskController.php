@@ -103,10 +103,20 @@ class TaskController extends Controller
         return redirect()->back()->with('success', 'Task edited successfully');
     }
 
-    function delete($task_id)
+    function destroy($project_id, $task_id)
     {
-        $task = Task::find($task_id);
+        $task = Task::findOrFail($task_id);
+
+        $tasks = Task::where('dependencies', 'like', '%' . $task_id . '%')->get();
+        foreach ($tasks as $t) {
+            $dependencies = json_decode($t->dependencies);
+            $index = array_search($task_id, $dependencies);
+            unset($dependencies[$index]);
+            $t->dependencies = json_encode($dependencies);
+            $t->save();
+        }
         $task->delete();
+
         return redirect()->back()->with('success', 'Task deleted successfully');
     }
 }
