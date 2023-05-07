@@ -22,7 +22,7 @@ class ProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'task_name' => 'required|string|max:100|min:3|unique:tasks,name',
+            'task_name' => 'required','string|max:100|min:3',
             'task_description' => 'required|string',
             // 'start_date' => 'required|date',
             // 'end_date' => 'required|date|after:start_date',

@@ -32,12 +32,7 @@ class TaskController extends Controller
 
         $tasks_data = Task::where("project_id", $project_id)->get();
 
-        $tasks = Algorithm::getStructure($tasks_data);
-
-        $algorithm_result = Algorithm::getCriticalPath($tasks);
-        $criticalPath = $algorithm_result[0];
-        $criticalTime = $algorithm_result[1];
-        return view('task.index', compact("criticalPath", "criticalTime", 'tasks_data', 'project_id'));
+        return view('task.index', compact('tasks_data', 'project_id'));
     }
 
 
@@ -68,6 +63,10 @@ class TaskController extends Controller
      */
     public function store(ProjectRequest $request)
     {
+        $data = Task::where('name',$request->task_name)->where('project_id',auth()->user()->current_team_id)->first();
+
+        if($data != null ) return redirect()->back()->with('error_task', 'Task Name must be unique in a Project')->withInput();;
+        
         $task = new Task();
         $task->name = $request->task_name;
         $task->description = $request->task_description;

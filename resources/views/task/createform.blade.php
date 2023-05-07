@@ -17,6 +17,11 @@
                     @enderror
                 </span>
                 @endif
+                @if (session('error_task'))
+                <span class="text-danger">
+                    {{ session('error_task') }}
+                </span>
+                @endif
             </div>
             <div class="form-group">
                 <label for="task-description">Task Description:</label>
