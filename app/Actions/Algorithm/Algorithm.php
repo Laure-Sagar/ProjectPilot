@@ -20,7 +20,7 @@ class Algorithm
             ];
             array_push($tasks, $taskd);
         }
-        
+
         return $tasks;
     }
 
@@ -30,8 +30,8 @@ class Algorithm
         $successors = array();
         foreach ($tasks as $task) {
             $task_name = [];
-            
-            foreach($task['dependencies'] as $dependency){
+
+            foreach ($task['dependencies'] as $dependency) {
                 $task_name[] = Task::find($dependency)->name;
                 // if($dependency != null)
                 // dd($task_name);
@@ -40,7 +40,7 @@ class Algorithm
                 $successors[] = $task['name'];
             }
         }
-       
+
         return $successors;
     }
 
@@ -48,9 +48,9 @@ class Algorithm
     public static function getCriticalPath($tasks)
     {
         // dd($tasks);
-        $latestFinishTimes = 0; 
-        $latestStartTimes = 0; 
-        $earliestFinishTimes = 0; 
+        $latestFinishTimes = 0;
+        $latestStartTimes = 0;
+        $earliestFinishTimes = 0;
         $earliestStartTimes = 0;
         if ($tasks != null) {
 
@@ -63,10 +63,15 @@ class Algorithm
 
                 foreach ($task['dependencies'] as $dependency) {
                     $dependency = Task::find($dependency)->name;
-                    // dd($dependency);
                     $earliestStartTimes[$task['name']] = max($earliestStartTimes[$task['name']], $earliestFinishTimes[$dependency]);
                 }
                 $earliestFinishTimes[$task['name']] = $earliestStartTimes[$task['name']] + $task['duration'];
+
+                // Find task from model and update eft and est
+                $task = Task::where('name', $task['name'])->first();
+                $task->eft = $earliestFinishTimes[$task['name']];
+                $task->est = $earliestStartTimes[$task['name']];
+                $task->save();
             }
 
             // Step 2: Calculate the latest start and finish times for each task
@@ -78,6 +83,12 @@ class Algorithm
                 $latestStartTimes[$task['name']] = $latestFinishTimes[$task['name']] - $task['duration'];
                 foreach (Algorithm::getSuccessorTasks($tasks, $task['name']) as $dependency) {
                     $latestFinishTimes[$task['name']] = min($latestFinishTimes[$task['name']], $latestStartTimes[$dependency]);
+
+                    // Find task from model and update lft and lst
+                    $task = Task::where('name', $task['name'])->first();
+                    $task->lft = $latestFinishTimes[$task['name']];
+                    $task->lst = $latestStartTimes[$task['name']];
+                    $task->save();
                 }
                 $latestStartTimes[$task['name']] = $latestFinishTimes[$task['name']] - $task['duration'];
             }
@@ -98,7 +109,6 @@ class Algorithm
             $criticalTime = 0;
             $criticalPath = [];
         }
-        // dd($tasks);
         return array($criticalPath, $criticalTime, $latestFinishTimes, $latestStartTimes, $earliestFinishTimes, $earliestStartTimes);
     }
 }

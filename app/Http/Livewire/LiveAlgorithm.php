@@ -9,15 +9,20 @@ use App\Actions\Algorithm\Algorithm;
 
 class LiveAlgorithm extends Component
 {
-    public $status = '', $criticalPath = [], $criticalTime = 0;
+    public $status = '', $criticalPath = [], $criticalTime = 0, $tasks_data = [], $project_id = 0;
 
     public function mount()
     {
         $this->status = 'idle';
+        $this->project_id = Team::find(auth()->user()->current_team_id)->id;
+        $this->tasks_data = Task::where("project_id", $this->project_id)->get();
     }
 
     public function algorithm()
     {
+        $this->status = "running";
+        sleep(2);
+
         $user = auth()->user();
         $project_id = Team::find($user->current_team_id)->id;
 
@@ -27,21 +32,15 @@ class LiveAlgorithm extends Component
 
         $algorithm_result = Algorithm::getCriticalPath($tasks);
 
-        $this->updateStatus("running");
-
         $this->criticalPath = implode("->", $algorithm_result[0]);
         $this->criticalTime = $algorithm_result[1];
 
-        $this->updateStatus("success");
-    }
-
-    public function updateStatus($newStatus)
-    {
-        $this->status = $newStatus;
+        sleep(2);
+        $this->status = "success";
     }
 
     public function render()
     {
-        return view('livewire.live-algorithm');
+        return view('livewire.live-algorithm',);
     }
 }
