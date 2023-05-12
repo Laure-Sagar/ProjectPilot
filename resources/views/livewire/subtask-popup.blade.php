@@ -72,7 +72,7 @@
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="name" type="text" placeholder="Enter name">
+                id="name" name="name" type="text" placeholder="Enter name" wire.model="name">
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="description">
@@ -80,7 +80,7 @@
             </label>
             <textarea
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="description" placeholder="Enter description"></textarea>
+                id="description" name="description" placeholder="Enter description" wire:model="description"></textarea>
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="end-date">
@@ -88,43 +88,25 @@
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="end-date" type="date" name="end-date">
+                id="end-date" type="date" name="end-date" wire:model="date">
         </div>
         <div class="mb-4">
-            <div class="dropdown">
+            <div class="dropdown mt-1 mb-4">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="button"
                     id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Members
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <form class="px-4 py-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="member1" id="member1">
-                            <label class="form-check-label" for="member1">
-                                Member 1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="member2" id="member2">
-                            <label class="form-check-label" for="member2">
-                                Member 2
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="member3" id="member3">
-                            <label class="form-check-label" for="member3">
-                                Member 3
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="member4" id="member4">
-                            <label class="form-check-label" for="member4">
-                                Member 4
-                            </label>
-                        </div>
-                    </form>
+                    @foreach($teams as $member)
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="team[]" value="{{$member->name}}"
+                            id="member1" wire:model="member">
+                        <label class="form-check-label" for="member1">
+                            {{$member->name}}
+                        </label>
+                    </div>
+                    @endforeach
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" type="button">Add Selected Members</button>
                 </div>
             </div>
             <button
@@ -133,7 +115,7 @@
                 Close
             </button>
             {{-- submit button --}}
-            <button
+            <button wire:click='save'
                 class="float-right bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md"
                 type="button">
                 Submit
