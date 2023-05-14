@@ -22,6 +22,12 @@ class LiveAlgorithm extends Component
     {
         $this->status = "running";
         sleep(2);
+        $this->status = "calculating...";
+        sleep(2);
+        $this->status = "almost done...";
+        sleep(2);
+        $this->status = "done";
+
 
         $user = auth()->user();
         $project_id = Team::find($user->current_team_id)->id;
