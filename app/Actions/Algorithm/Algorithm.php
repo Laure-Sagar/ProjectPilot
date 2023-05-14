@@ -11,6 +11,7 @@ class Algorithm
 
     public static function getStructure($tasks_data)
     {
+        // dd($tasks_data);
         $tasks = [];
         foreach ($tasks_data as $task) {
             $taskd = [
@@ -98,6 +99,11 @@ class Algorithm
                 if ($earliestStartTimes[$task['name']] === $latestStartTimes[$task['name']]) {
                     $criticalPath[] = $task['name'];
                 }
+            }
+            $slackTime = array();
+            foreach($tasks as $task){
+                $slackTime[] = $latestStartTimes[$task['name']] - $earliestStartTimes[$task['name']];
+            
             }
             $criticalTime = 0;
             foreach ($tasks as  $task) {
