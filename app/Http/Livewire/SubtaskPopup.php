@@ -47,15 +47,34 @@ class SubtaskPopup extends Component
         $this->button = 'closed';
     }
 
-    public function dragEnd($subtasks, $status)
+    public function SortTodo($event)
     {
-        dd($subtasks);
-        foreach ($subtasks as $task) {
+        foreach ($event as $data) {
+            $subtask = SubTask::find($data['value']);
+            $subtask->position = $data['order'];
+            $subtask->save();
         }
-        $this->subtasks = SubTask::where('task_id', $this->task_id)
-            ->orderBy('status')
-            ->orderBy('position')
-            ->get();;
+    }
+
+    function moveToDoing($id)
+    {
+        $subtask = SubTask::find($id);
+        $subtask->status = 'doing';
+        $subtask->save();
+    }
+
+    function moveToDone($id)
+    {
+        $subtask = SubTask::find($id);
+        $subtask->status = 'done';
+        $subtask->save();
+    }
+
+    function moveToDo($id)
+    {
+        $subtask = SubTask::find($id);
+        $subtask->status = 'todo';
+        $subtask->save();
     }
 
     public function render()

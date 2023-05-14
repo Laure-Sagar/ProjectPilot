@@ -43,35 +43,42 @@
     </div>
 
     <div class="flex flex-row gap-4 ml-6 mt-4">
-        <div class="card to-do bg-white rounded-lg shadow-md px-4 py-4" wire:sortable="dragEnd"
+        <div class="card to-do bg-white rounded-lg shadow-md px-4 py-4" wire:sortable="SortTodo"
             wire:sortable-group="todo">
             <div class=" font-semibold text-lg mb-2">To Do</div>
             @foreach($subtasks->where('status','todo') as $subtask)
-            <div class="content draggable" wire:key="subtask_{{ $subtask->id }}" wire:sortable.item="{{ $subtask->id }}"
-                wire:sortable-group.item="todo">
-                <div class="text-gray-600">Posted 2 days ago</div>{{$subtask->name}}
+            <div class="content draggable" draggable="true" wire:key="subtask_{{ $subtask->id }}"
+                wire:sortable.item="{{ $subtask->id }}">
+                <div class="text-gray-600">{{ $subtask->date}}</div>{{$subtask->name}}
             </div>
+            <button style="float:right; margin-top:-55px" wire:click="moveToDoing({{ $subtask->id }})">➡</button>
             @endforeach
         </div>
-        <div class="card doing bg-white rounded-lg shadow-md px-4 py-4" wire:sortable="dragEnd"
+        <div class="card doing bg-white rounded-lg shadow-md px-4 py-4" wire:sortable="SortTodo"
             wire:sortable-group="doing">
             <div class="font-semibold text-lg mb-2 ">Doing</div>
             @foreach($subtasks->where('status','doing') as $subtask)
-            <div class="content draggable" wire:key="subtask_{{ $subtask->id }}" wire:sortable.item="{{ $subtask->id }}"
-                wire:sortable-group.item="doing">
+            <button class="mr-2" style="float:left; margin-top: 25px"
+                wire:click="moveToDo({{ $subtask->id }})">⬅</button>
+            <div class="content draggable" class="ml-6" draggable="true" wire:key="subtask_{{ $subtask->id }}"
+                wire:sortable.item="{{ $subtask->id }}">
                 <div class="text-gray-600">
                     {{ $subtask->date}}</div>
                 {{$subtask->name}}
             </div>
+            <button style="float:right; margin-top:-55px" wire:click="moveToDone({{ $subtask->id }})">➡</button>
             @endforeach
         </div>
-        <div class="card done bg-white rounded-lg shadow-md px-4 py-4" wire:sortable="dragEnd"
-            wire:sortable-group="done">
+        <div class="card done bg-white rounded-lg shadow-md px-4 py-4" ondragover="allowDrop(event)"
+            ondrop="drop(event)" wire:sortable="SortTodo" wire:sortable-group="done">
             <div class="font-semibold text-lg mb-2 ">Done</div>
             @foreach($subtasks->where('status','done') as $subtask)
-            <div class="content draggable" wire:key="subtask_{{ $subtask->id }}" wire:sortable.item="{{ $subtask->id }}"
-                wire:sortable-group.item="done">
-                <div class="text-gray-600">{{$subtask->date}}</div>{{$subtask->name}}
+            <button class="mr-1" style="float:left; margin-top:25px"
+                wire:click="moveToDoing({{ $subtask->id }})">⬅</button>
+            <div class="content draggable" draggable="true" wire:key="subtask_{{ $subtask->id }}"
+                wire:sortable.item="{{ $subtask->id }}">
+                <div class="text-gray-600">{{$subtask->date}}</div>
+                {{$subtask->name}}
             </div>
             @endforeach
         </div>
@@ -130,14 +137,12 @@
                 type="button" wire:click='close'>
                 Close
             </button>
-            {{-- submit button --}}
             <button wire:click='save'
                 class="float-right bg-indigo-600 text-white hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 font-bold py-2 px-4 rounded-md"
                 type="button">
                 Submit
             </button>
         </div>
-        {{-- close button --}}
     </form>
     @endif
     <script>

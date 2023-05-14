@@ -64,8 +64,8 @@
                     </div>
                     <div wire:loading.remove wire:target="algorithm">
                         <div class="mb-4">
-                            <p class="text-gray-800">EFT ⏩{{ $task->eft}}, LFT ⏩{{ $task->lft}}, EST ⏩{{ $task->est}},
-                                LST ⏩{{ $task->lst}}</p>
+                            <p class="text-gray-800">EFT= {{ $task->eft}}, LFT= {{ $task->lft}}, EST= {{ $task->est}},
+                                LST= {{ $task->lst}}</p>
                         </div>
                     </div>
                     <div wire:loading wire:target="algorithm">
