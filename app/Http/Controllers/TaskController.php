@@ -48,7 +48,7 @@ class TaskController extends Controller
     public function subindex($task_id)
     {
         $task = Task::find($task_id);
-        return view('subtasks.trello')->with('task_id', $task_id)->with('task', $task);
+        return view('subtasks.trello')->with('task_id', $task_id);
     }
 
     public function subindexCreate()

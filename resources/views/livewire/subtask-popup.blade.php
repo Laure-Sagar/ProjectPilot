@@ -43,24 +43,37 @@
     </div>
 
     <div class="flex flex-row gap-4 ml-6 mt-4">
-        <div class="card to-do bg-white rounded-lg shadow-md px-4 py-4" ondragover="allowDrop(event)"
-            ondrop="drop(event)">
+        <div class="card to-do bg-white rounded-lg shadow-md px-4 py-4" wire:sortable="dragEnd"
+            wire:sortable-group="todo">
             <div class=" font-semibold text-lg mb-2">To Do</div>
-            <div class="text-gray-600">Posted 2 days ago</div>
-            <div class="content draggable" draggable="true" ondragstart="drag(event)">Content goes here for more length
+            @foreach($subtasks->where('status','todo') as $subtask)
+            <div class="content draggable" wire:key="subtask_{{ $subtask->id }}" wire:sortable.item="{{ $subtask->id }}"
+                wire:sortable-group.item="todo">
+                <div class="text-gray-600">Posted 2 days ago</div>{{$subtask->name}}
             </div>
-            <div class="content draggable" draggable="true" ondragstart="drag(event)">Content goes here</div>
-            <div class="content draggable" draggable="true" ondragstart="drag(event)">Content goes here</div>
+            @endforeach
         </div>
-        <div class="card doing bg-white rounded-lg shadow-md px-4 py-4" ondragover="allowDrop(event)"
-            ondrop="drop(event)">
+        <div class="card doing bg-white rounded-lg shadow-md px-4 py-4" wire:sortable="dragEnd"
+            wire:sortable-group="doing">
             <div class="font-semibold text-lg mb-2 ">Doing</div>
-            <div class="text-gray-600">Posted 1 day ago</div>
+            @foreach($subtasks->where('status','doing') as $subtask)
+            <div class="content draggable" wire:key="subtask_{{ $subtask->id }}" wire:sortable.item="{{ $subtask->id }}"
+                wire:sortable-group.item="doing">
+                <div class="text-gray-600">
+                    {{ $subtask->date}}</div>
+                {{$subtask->name}}
+            </div>
+            @endforeach
         </div>
-        <div class="card done bg-white rounded-lg shadow-md px-4 py-4" ondragover="allowDrop(event)"
-            ondrop="drop(event)">
+        <div class="card done bg-white rounded-lg shadow-md px-4 py-4" wire:sortable="dragEnd"
+            wire:sortable-group="done">
             <div class="font-semibold text-lg mb-2 ">Done</div>
-            <div class="text-gray-600">Posted 3 days ago</div>
+            @foreach($subtasks->where('status','done') as $subtask)
+            <div class="content draggable" wire:key="subtask_{{ $subtask->id }}" wire:sortable.item="{{ $subtask->id }}"
+                wire:sortable-group.item="done">
+                <div class="text-gray-600">{{$subtask->date}}</div>{{$subtask->name}}
+            </div>
+            @endforeach
         </div>
     </div>
 
@@ -70,9 +83,10 @@
             <label class="block text-gray-700 font-bold mb-2" for="name">
                 Name:
             </label>
-            <input
+            <textarea
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="name" name="name" type="text" placeholder="Enter name" wire.model="name">
+                id="description" name="taskname" placeholder="Enter description" wire:model="taskname"
+                required></textarea>
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="description">
@@ -80,7 +94,8 @@
             </label>
             <textarea
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="description" name="description" placeholder="Enter description" wire:model="description"></textarea>
+                id="description" name="description" placeholder="Enter description" wire:model="description"
+                required></textarea>
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="end-date">
@@ -88,7 +103,8 @@
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="end-date" type="date" name="end-date" wire:model="date">
+                id="end-date" type="date" name="end-date" wire:model="date" required>
+            <div class="text-red-500">{{$errors->first('date')}}</div>
         </div>
         <div class="mb-4">
             <div class="dropdown mt-1 mb-4">
@@ -99,8 +115,8 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     @foreach($teams as $member)
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="team[]" value="{{$member->name}}"
-                            id="member1" wire:model="member">
+                        <input class="form-check-input" type="checkbox" name="members[]" value="{{$member->name}}"
+                            id="member1" wire:model="members">
                         <label class="form-check-label" for="member1">
                             {{$member->name}}
                         </label>
@@ -124,4 +140,25 @@
         {{-- close button --}}
     </form>
     @endif
+    <script>
+        var dragging;
+    
+        function drag(event) {
+            dragging = event.target;
+            event.dataTransfer.setData("text", event.target.innerHTML);
+            event.target.classList.add("dragging");
+        }
+    
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+    
+        function drop(event) {
+            event.preventDefault();
+            if (event.target.classList.contains("card")) {
+                event.target.appendChild(dragging);
+            }
+            dragging.classList.remove("dragging");
+        }
+    </script>
 </div>

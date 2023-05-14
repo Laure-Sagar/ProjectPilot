@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('date')->nullable();
             $table->string('members')->nullable();
             $table->unsignedBigInteger('task_id');
+            $table->string('status')->default('todo');
+            $table->integer('position')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+            $table->timestamps();
         });
     }
 

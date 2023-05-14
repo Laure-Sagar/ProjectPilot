@@ -1,24 +1,6 @@
 <x-app-layout>
-    <livewire:subtask-popup />
-    <script>
-        var dragging;
-
-    function drag(event) {
-        dragging = event.target;
-        event.dataTransfer.setData("text", event.target.innerHTML);
-        event.target.classList.add("dragging");
-    }
-
-    function allowDrop(event) {
-        event.preventDefault();
-    }
-
-    function drop(event) {
-        event.preventDefault();
-        if (event.target.classList.contains("card")) {
-            event.target.appendChild(dragging);
-        }
-        dragging.classList.remove("dragging");
-    }
-    </script>
+    @livewireStyles
+    <livewire:subtask-popup :task_id='$task_id' />
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
 </x-app-layout>
