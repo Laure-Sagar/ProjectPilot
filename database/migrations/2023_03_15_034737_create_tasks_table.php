@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('lst')->nullable();
             $table->integer('eft')->nullable();
             $table->integer('lft')->nullable();
+            $table->integer('slack')->nullable();
             $table->text('dependencies')->nullable();
             $table->string('status')->nullable();
             $table->string('project_id');

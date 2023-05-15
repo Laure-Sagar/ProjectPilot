@@ -45,7 +45,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 '/{project_id}/start_date',
                 'App\Http\Controllers\ProjectController@edit_dates'
             )->name('edit_start_date');
-            Route::put('/{project_id}/start_date', 'App\Http\Controllers\ProjectController@storeDates')->name('updatedates');
+            Route::post('/{project_id}/start_date', 'App\Http\Controllers\ProjectController@storeDates')->name('updatedates');
             Route::get('/{project_id}/destroy', 'App\Http\Controllers\ProjectController@destroy')->name('destroy');
             Route::get('/{project_id}/edit', 'App\Http\Controllers\ProjectController@edit')->name('edit');
             Route::get('/create', 'App\Http\Controllers\ProjectController@create')->name('create');

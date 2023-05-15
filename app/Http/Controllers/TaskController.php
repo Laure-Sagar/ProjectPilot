@@ -94,7 +94,7 @@ class TaskController extends Controller
         $task->duration = request()->duration;
         if (request()->task_dependencies == null)
             $task->dependencies = "[]";
-        else
+        else 
             $task->dependencies = json_encode(request()->task_dependencies);
         $task->save();
 

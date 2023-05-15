@@ -100,11 +100,15 @@ class Algorithm
                     $criticalPath[] = $task['name'];
                 }
             }
+
+            // store slack time
             $slackTime = array();
-            foreach($tasks as $task){
-                $slackTime[] = $latestStartTimes[$task['name']] - $earliestStartTimes[$task['name']];
-            
+            foreach ($tasks as $task) {
+                $task = Task::where('name', $task['name'])->first();
+                $task->slack = $latestStartTimes[$task['name']] - $earliestStartTimes[$task['name']];
+                $task->save();
             }
+
             $criticalTime = 0;
             foreach ($tasks as  $task) {
                 if (in_array($task['name'], $criticalPath)) {
@@ -115,6 +119,6 @@ class Algorithm
             $criticalTime = 0;
             $criticalPath = [];
         }
-        return array($criticalPath, $criticalTime, $latestFinishTimes, $latestStartTimes, $earliestFinishTimes, $earliestStartTimes);
+        return array($criticalPath, $criticalTime, $slackTime);
     }
 }

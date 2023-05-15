@@ -21,14 +21,8 @@ class LiveAlgorithm extends Component
     public function algorithm()
     {
         $this->status = "running";
-        sleep(2);
         $this->status = "calculating...";
-        sleep(2);
         $this->status = "almost done...";
-        sleep(2);
-        $this->status = "done";
-
-
         $user = auth()->user();
         $project_id = Team::find($user->current_team_id)->id;
 
@@ -40,8 +34,6 @@ class LiveAlgorithm extends Component
 
         $this->criticalPath = implode("->", $algorithm_result[0]);
         $this->criticalTime = $algorithm_result[1];
-
-        sleep(2);
         $this->status = "success";
     }
 
